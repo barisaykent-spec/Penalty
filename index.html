@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basit Penaltı Oyunu</title>
+  <style>
+    /* Genel düzen ve renkler */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #gameContainer {
+      width: 100%;
+      max-width: 640px;
+      position: relative;
+    }
+
+    /* Skor tablosu ve zorluk seçimi */
+    #scoreboard {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      padding: 8px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+    }
+    #scoreboard span {
+      font-weight: bold;
+      margin-left: 4px;
+    }
+    #scoreboard label {
+      display: flex;
+      align-items: center;
+    }
+    #difficulty {
+      margin-left: 4px;
+      padding: 4px;
+      font-size: 14px;
+    }
+
+    /* Oyun alanı */
+    #field {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      background: linear-gradient(#2e8b57, #006400);
+      border: 4px solid #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* Kale alanı: üstteki hedef bölgesi */
+    #goalArea {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 320px;
+      height: 140px;
+      border: 4px solid #ffffff;
+      border-bottom: none;
+      border-radius: 0 0 12px 12px;
+      cursor: crosshair; /* kullanıcıya tıklanabilir olduğunu hissettir */
+    }
+
+    /* Kale çizgileri (kale direkleri gibi görünsün diye) */
+    #goalArea::before,
+    #goalArea::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 6px;
+      height: 100%;
+      background: #ffffff;
+    }
+    #goalArea::before { left: 0; }
+    #goalArea::after  { right: 0; }
+
+    /* Kaleci */
+    #goalKeeper {
+      position: absolute;
+      bottom: 2px;
+      width: 80px;
+      height: 30px;
+      background: #e67e22;
+      border-radius: 6px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Top */
+    #ball {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      user-select: none;
+      /* Pointer olaylarını iptal etmeyelim. Böylece topu dokunmatik ekranda sürükleyebiliriz */
+    }
+
+    /* Oyun bitince çıkan katman */
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      font-size: 24px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    /* .hidden sınıfı id özelliklerini de geçersiz kılsın diye !important kullanılır */
+    .hidden { display: none !important; }
+    #restartBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      background: #3498db;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+    #restartBtn:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameContainer">
+    <div id="scoreboard">
+      <div>
+        Goller: <span id="goals">0</span>
+      </div>
+      <div>
+        Kaçanlar: <span id="misses">0</span>
+      </div>
+      <div>
+        Kalan Atış: <span id="shotsLeft">5</span>
+      </div>
+      <label for="difficulty">
+        Zorluk:
+        <select id="difficulty">
+          <option value="easy">Kolay</option>
+          <option value="medium" selected>Orta</option>
+          <option value="hard">Zor</option>
+        </select>
+      </label>
+      <!-- Ek seçenekler: falso ve şut gücü -->
+      <label for="spin">
+        Falso:
+        <select id="spin">
+          <option value="none" selected>Yok</option>
+          <option value="left">Sol</option>
+          <option value="right">Sağ</option>
+        </select>
+      </label>
+      <label for="power">
+        Güç:
+        <select id="power">
+          <option value="soft">Yumuşak</option>
+          <option value="hard" selected>Sert</option>
+        </select>
+      </label>
+    </div>
+    <div id="field">
+      <div id="goalArea">
+        <div id="goalKeeper"></div>
+      </div>
+      <!-- Topu çizmek için base64 data URI kullanıyoruz -->
+      <img id="ball" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAvVBMVEVHcEyCiI43PUNITVMxNz0xNz31+PoxNz0xNz1KT1X1+Pr1+Po7QUf1+Pr1+PoxNz2TmJxDSU71+PoxNz05P0X1+Prz9vgxNz31+Pr1+Pr1+Pr1+Pp/hImvs7fn6u31+PoxNz3M1t08QkjZ4ebn7PDP2N9ITlTy9vhWXGHR2uHQ1NfDzdPp7O7v8/ZhZ22JkJfi6O2TmJyssLPEyMufpKfe5eq2vcPr8PPU3OJ6f4SlrrRtc3jd4OJOVVuVnKLdUfDLAAAAH3RSTlMA/uGWIFAgn++An4/P79+AQK+Av2BAr49Qv2DPUN/f67gDGQAAA/9JREFUeF6d12lz4ygQBmB8X7EnmVyTzOx2o/uW7zPJ//9Za4RSwAKKJs8nl+1qd7+ACpMG/YfefRdr3fveQ598w2DURU2394f8lWFvjBad2ZC09fh0RqsC4OmxXTfTpR+g3S4EmLbo6ufcpRQbUH8JMP/5VTu/DzGl9IRWBaX0eAD43djUr/mSVo7JZnUqUOEUne0+pRU3h/mvhrHyI60sgXvj5YJotd1kwLCGK8sQrONNPZ8y8QFk9AqEpU8rsQdTYjRC7FRth9BUCEKXcu5haqmDSKnvAZgLCQdWKi2CqOgRzQQZeszBXkjwYloiM9GOFjLBDqBVIQiXH1gZEEV/jMwFbIV0CVbGfSK7wcrKXkiH3I0aELcBg7LzYSxUIDdRBuMy0LxFiFhkoDuhNtwIuQA0awcZx9DrFmsjUrtFTs86E6e3ozW1wU+3hLtDNGedBChEiZ527a5OCNGc9QpVW1CJn+EpPSOass4K/Vn0BrILfnomzBhr7zvpfOwd1Dl7ELwSP43F4WAulMY7j7fTQbML7zr3XJ+exdsDvva1kjK+60ESoU2wgcPuWH1xjyjvgC7WnJTWSmzSoZ9ESF15zUqXcidsdqKc7zvSuj2gtK3Z5JTiV+jVcZlLmxsfSA9ra6h4u9jBZu/XGHOoRFjrkXvkCm1/WH0Yjsk96eq7eo3N3gyPgC5B7gTCGzaKQJI5yBH1V8TkdlvjgSSmc79qNxkXyIWcDGRJ68lE3kQsvcRpnEwVVkE4hIUVHEB1aj8ZHPaIziojSYDOfgeqdfvJYEfTfQxAwD2n9AiqrP1kwJ4ELgBZePQqBFXRerKQXnmwIC85f6Xatp6s6iOHFzKDmPemSFpPtmN3LoAZef18qQpsk1kieiXDurl2GyACc0QwJGRRvV6CItyjUXkwR7RgV1Bw9ZByH432fmiMaMru1sDu1j4oXPphee67xoiqO/e82gBKz6w0PYagCmMegh7RnDAz8CN0ykweTOQvy+n/3z+WnT3NYUaYIaR4FazFx3L8WqdxCLWErW0UszWrPG0ReSlpMBdMXOmjdYGVFJ4I91ggilJ8AD8Hk9Cvm822gbhVPSpXPy7aiEhNDpQ5nqRHXzCVL6NCcRbdm2M6Fygbs4RqP1BWpH4IVm6Jqol6YZddPLA7o+pG/wshnMAqEemIW7ZkgIoVWGQOqgaEs8SEa0udSAtIM2pT6YSqEREslZwEdCu9zrcqrW11mnNysi8WbEKsBmOUvKdUlqp1xgPSoH+jVKKyd5Td9EmzH3JTZypR2pmQL/VF5k5q6WjUJ23c3mElSMz/Au9uSVv95zFilJm2Ufe5T/7KoPcvaP7pDcg3DF9nLwuoLV5mr0Ni9x8M+A0WYx+bogAAAABJRU5ErkJggg==" alt="Top" />
+      <div id="overlay" class="hidden">
+        <div id="gameMessage"></div>
+        <button id="restartBtn">Tekrar Başlat</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Oyunun durum değişkenleri
+    const field = document.getElementById('field');
+    const goalArea = document.getElementById('goalArea');
+    const goalkeeper = document.getElementById('goalKeeper');
+    const ball = document.getElementById('ball');
+    const goalsEl = document.getElementById('goals');
+    const missesEl = document.getElementById('misses');
+    const shotsLeftEl = document.getElementById('shotsLeft');
+    const difficultySelect = document.getElementById('difficulty');
+    const spinSelect = document.getElementById('spin');
+    const powerSelect = document.getElementById('power');
+    const overlay = document.getElementById('overlay');
+    const gameMessage = document.getElementById('gameMessage');
+    const restartBtn = document.getElementById('restartBtn');
+
+    // Oyun henüz başlamadıysa başlangıç katmanı gösterilecek
+    let gameStarted = false;
+
+    let shots = 0;
+    let goals = 0;
+    let misses = 0;
+    let moving = false;
+
+    // Başlangıç konumlarını ayarla
+    function initPositions() {
+      // Animasyonları kaldır (anında konumlandırsın)
+      ball.style.transition = 'none';
+      goalkeeper.style.transition = 'none';
+
+      // Topu alanın alt ortasına yerleştir
+      const fieldRect = field.getBoundingClientRect();
+      const ballWidth = ball.offsetWidth;
+      const ballHeight = ball.offsetHeight;
+      ball.style.left = (fieldRect.width / 2 - ballWidth / 2) + 'px';
+      ball.style.top = (fieldRect.height - ballHeight - 20) + 'px';
+
+      // Kaleciyi kalenin ortasına yerleştir
+      const goalRect = goalArea.getBoundingClientRect();
+      const keeperWidth = goalkeeper.offsetWidth;
+      goalkeeper.style.left = (goalArea.offsetWidth / 2 - keeperWidth / 2) + 'px';
+    }
+
+    // Skor ve kalan atış sayısını güncelle
+    function updateScoreboard() {
+      goalsEl.textContent = goals;
+      missesEl.textContent = misses;
+      shotsLeftEl.textContent = Math.max(0, 5 - shots);
+    }
+
+    // Oyunu baştan başlat
+    function resetGame() {
+      shots = 0;
+      goals = 0;
+      misses = 0;
+      moving = false;
+      updateScoreboard();
+      initPositions();
+      overlay.classList.add('hidden');
+    }
+
+    // Başlangıç mesajını gösterir
+    function showStartOverlay() {
+      gameStarted = false;
+      // Başlangıç mesajı ve buton metni
+      gameMessage.textContent = 'Penaltı oyununa hoş geldin! Başlamak için butona bas.';
+      restartBtn.textContent = 'Başla';
+      overlay.classList.remove('hidden');
+      // Başla butonuna geçici dinleyici tanımla
+      restartBtn.onclick = () => {
+        overlay.classList.add('hidden');
+        resetGame();
+        gameStarted = true;
+        // Bundan sonra buton yeniden "Tekrar Başlat" olarak çalışacak
+        restartBtn.textContent = 'Tekrar Başlat';
+        restartBtn.onclick = resetGame;
+      };
+    }
+
+    /**
+     * Verilen hedef oranına göre şut çeker. Bu fonksiyon hem fare ile tıklama
+     * hem de dokunmatik sürükleme için ortak iş mantığını içerir.
+     * @param {number} relativeX 0 ile 1 arasında, 0 sol köşe 1 sağ köşe
+     */
+    function shoot(relativeX, relativeY = 1) {
+      // Hareket veya oyun bitiş durumu kontrolü
+      if (moving || shots >= 5 || misses >= 3) return;
+
+      moving = true;
+      shots++;
+      updateScoreboard();
+
+      // Kaleci hedefini zorluğa göre belirle (0-1 arası değer)
+      const difficulty = difficultySelect.value;
+      let goalieTargetRatio;
+      if (difficulty === 'easy') {
+        // Kolay mod: kaleci rastgele hareket eder (topu tahmin etme ihtimali düşüktür)
+        goalieTargetRatio = Math.random();
+      } else if (difficulty === 'medium') {
+        // Orta mod: %50 topun yönüne gider, %50 rastgele
+        if (Math.random() < 0.5) {
+          goalieTargetRatio = relativeX + (Math.random() - 0.5) * 0.4; // biraz sapma ekle
+        } else {
+          goalieTargetRatio = Math.random();
+        }
+      } else {
+        // Zor mod: %75 topun yönüne gider, %25 rastgele
+        // Zor modda kalecinin tahmin başarısını %60 seviyesine düşürerek oyunu imkansız hale getirmeyelim
+        if (Math.random() < 0.6) {
+          goalieTargetRatio = relativeX + (Math.random() - 0.5) * 0.25;
+        } else {
+          goalieTargetRatio = Math.random();
+        }
+      }
+      // Oranları sınırla
+      goalieTargetRatio = Math.max(0, Math.min(1, goalieTargetRatio));
+
+      // Geçerli konumları ölç: dönüştürülmüş sol değerleri hesaba katmak için getBoundingClientRect kullanılır
+      const goalRect = goalArea.getBoundingClientRect();
+      const fieldRect = field.getBoundingClientRect();
+      const ballWidth = ball.offsetWidth;
+      const ballHeight = ball.offsetHeight;
+      const keeperWidth = goalkeeper.offsetWidth;
+
+      // Hedef x ve y konumlarını hesapla (goalRect ve fieldRect farkı ile alan içi konum)
+      // Kullanıcının seçtiği falso ve güç değerlerini al
+      const spin = spinSelect.value;
+      const power = powerSelect.value;
+
+      let targetX = relativeX;
+      // Falso: hedef oranını sağa veya sola hafifçe kaydır
+      if (spin === 'left') {
+        targetX = Math.max(0, relativeX - 0.15);
+      } else if (spin === 'right') {
+        targetX = Math.min(1, relativeX + 0.15);
+      }
+      const ballTargetLeft = targetX * goalRect.width + (goalRect.left - fieldRect.left) - ballWidth / 2;
+      // Dikey hedef: relativeY ile topun ne kadar yükseğe gideceğini belirle
+      const ballTargetTop  = (goalRect.top - fieldRect.top) + relativeY * goalRect.height - ballHeight * 0.8;
+      const keeperTargetLeft = goalieTargetRatio * goalRect.width + (goalRect.left - fieldRect.left) - keeperWidth / 2;
+
+      // Hareket ettir: CSS geçişlerini etkinleştir
+      // Şutun hızını güç seçimine göre ayarla
+      let duration;
+      if (power === 'soft') {
+        duration = 1.2; // daha yavaş
+      } else {
+        duration = 0.5; // daha hızlı
+      }
+      // Falso varsa topu döndürerek daha gerçekçi görünüm verelim
+      let rotationDegrees = 720;
+      if (spin === 'left' || spin === 'right') {
+        rotationDegrees = 1440;
+      }
+      ball.style.transition = `left ${duration}s linear, top ${duration}s linear, transform ${duration}s linear`;
+      goalkeeper.style.transition = `left ${duration}s linear`;
+
+      // Yeni konumları ayarla (DOM güncellemesi sırasında anında uygulanır ve geçiş başlar)
+      ball.style.left = ballTargetLeft + 'px';
+      ball.style.top  = ballTargetTop  + 'px';
+      goalkeeper.style.left = keeperTargetLeft + 'px';
+      // Rotasyonu uygula (her vuruşta saat yönünde olsun)
+      ball.style.transform = `rotate(${rotationDegrees}deg)`;
+
+      // Animasyon tamamlandığında sonucu kontrol et
+      setTimeout(() => {
+        // Merkezleri hesapla
+        const ballCenterX  = ballTargetLeft + ballWidth / 2;
+        const keeperCenter = keeperTargetLeft + keeperWidth / 2;
+        const distance = Math.abs(ballCenterX - keeperCenter);
+        // Çarpışma eşiği: kaleci genişliğinin yarısı kadar
+        const collisionThreshold = keeperWidth / 2;
+        if (distance < collisionThreshold) {
+          // Kurtarış
+          misses++;
+        } else {
+          // Gol
+          goals++;
+        }
+        updateScoreboard();
+        // Oyun bitiş koşullarını kontrol et
+        if (misses >= 3) {
+          finishGame(false);
+        } else if (shots >= 5) {
+          finishGame(true);
+        }
+
+        // Topu ve kaleciyi geri getir
+        setTimeout(() => {
+          initPositions();
+          moving = false;
+        }, 300);
+      }, 750); // animasyon süresi + tampon
+    }
+
+    // Eski atış işlevi (fare tıklaması) artık shoot fonksiyonunu çağırır
+    function handleShot(event) {
+      // goalArea içindeki tıklamadan gelen X koordinatını normalize et
+      const rect = goalArea.getBoundingClientRect();
+      const clickX = event.clientX - rect.left;
+      let relativeX = clickX / rect.width;
+      // oranı 0-1 aralığında tut
+      relativeX = Math.max(0, Math.min(1, relativeX));
+      // Y koordinatına göre yüksekliği hesapla (0 = üst, 1 = alt)
+      const clickY = event.clientY - rect.top;
+      let relativeY = clickY / rect.height;
+      relativeY = Math.max(0, Math.min(1, relativeY));
+      shoot(relativeX, relativeY);
+    }
+
+    // Oyun bittiğinde çağrılır
+    function finishGame(completed) {
+      // completed=true ise atışlar bitti, false ise 3 kere kaçırılmıştır
+      moving = true;
+      let message;
+      if (!completed) {
+        message = `Maalesef oyunu kaybettin!\nGol: ${goals} / Kaçan: ${misses}`;
+      } else {
+        if (goals > misses) {
+          message = `Tebrikler! Oyunu kazandın!\nGol: ${goals} / Kaçan: ${misses}`;
+        } else if (goals === misses) {
+          message = `Oyun berabere bitti.\nGol: ${goals} / Kaçan: ${misses}`;
+        } else {
+          message = `Maalesef oyunu kaybettin.\nGol: ${goals} / Kaçan: ${misses}`;
+        }
+      }
+      gameMessage.textContent = message;
+      overlay.classList.remove('hidden');
+      // Bitişte buton metnini güncelle
+      restartBtn.textContent = 'Tekrar Başlat';
+      restartBtn.onclick = resetGame;
+    }
+
+    // Event listener'ları bağla
+    goalArea.addEventListener('click', handleShot);
+
+    // Dokunmatik cihazlar için: topu sürükleyerek atış yapabilme
+    let dragStartX = null;
+    ball.addEventListener('pointerdown', (e) => {
+      // Eğer top hareket halindeyse veya oyun bitmişse sürüklemeye izin verme
+      if (moving || shots >= 5 || misses >= 3) return;
+      dragStartX = e.clientX;
+      // Varsayılan tarayıcı sürüklemesinin (image drag) önlenmesi
+      e.preventDefault();
+    });
+    // Fare veya dokunma bırakıldığında atış yap
+    document.addEventListener('pointerup', (e) => {
+      if (dragStartX !== null) {
+        const goalRect = goalArea.getBoundingClientRect();
+        // Bırakma noktası goalRect solundan ne kadar uzak? buna göre relativeX hesapla
+        let posX = e.clientX - goalRect.left;
+        let relativeX = posX / goalRect.width;
+        relativeX = Math.max(0, Math.min(1, relativeX));
+        // Bırakma noktası için dikey oran hesapla
+        let posY = e.clientY - goalRect.top;
+        let relativeY = posY / goalRect.height;
+        relativeY = Math.max(0, Math.min(1, relativeY));
+        dragStartX = null;
+        shoot(relativeX, relativeY);
+      }
+    });
+    // Fare sürüklemesini iptal etmemize gerek yok ama resim sürüklemesini engelle
+    ball.addEventListener('dragstart', (e) => e.preventDefault());
+
+    // Başlangıçta butonun fonksiyonu "resetGame" yerine "showStartOverlay" ile değişecek
+    // Sayfa yüklendiğinde başlangıç pozisyonlarını ayarla ve başlangıç katmanını göster
+    window.addEventListener('load', () => {
+      initPositions();
+      // Oyun başlamadan önce başlangıç mesajı göster
+      showStartOverlay();
+    });
+  </script>
+</body>
+</html>
