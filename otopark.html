@@ -1,349 +1,997 @@
-PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9InRyIj4KPGhlYWQ+CiAgPG1ldGEgY2hhcnNldD0i
-VVRGLTgiPgogIDxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lk
-dGgsIGluaXRpYWwtc2NhbGU9MS4wLCBtYXhpbXVtLXNjYWxlPTEuMCwgdXNlci1zY2FsYWJsZT1u
-byI+CiAgPHRpdGxlPkFyYcOnIEthdMSxbTwvdGl0bGU+CiAgPHN0eWxlPgogICAgKiB7IGJveC1z
-aXppbmc6IGJvcmRlci1ib3g7IC13ZWJraXQtdGFwLWhpZ2hsaWdodC1jb2xvcjogdHJhbnNwYXJl
-bnQ7IH0KCiAgICBib2R5IHsKICAgICAgbWFyZ2luOiAwOwogICAgICBiYWNrZ3JvdW5kOiAjMGQw
-ZDFhOwogICAgICBjb2xvcjogI2ZmZjsKICAgICAgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0s
-IEJsaW5rTWFjU3lzdGVtRm9udCwgJ0hlbHZldGljYSBOZXVlJywgc2Fucy1zZXJpZjsKICAgICAg
-aGVpZ2h0OiAxMDBzdmg7CiAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICAgIHVzZXItc2VsZWN0
-OiBub25lOwogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1u
-OwogICAgfQoKICAgIC8qIOKUgOKUgCBQYWdlcyDilIDilIAgKi8KICAgIC5wYWdlIHsKICAgICAg
-ZGlzcGxheTogbm9uZTsKICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgICBmbGV4OiAxOwog
-ICAgICBvdmVyZmxvdzogaGlkZGVuOwogICAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uOwogICAg
-ICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICAg
-IH0KICAgIC5wYWdlLmFjdGl2ZSB7IGRpc3BsYXk6IGZsZXg7IH0KCiAgICAvKiDilIDilIAgVGFi
-IEJhciDilIDilIAgKi8KICAgICN0YWItYmFyIHsKICAgICAgaGVpZ2h0OiA2MHB4OwogICAgICBm
-bGV4LXNocmluazogMDsKICAgICAgZGlzcGxheTogZmxleDsKICAgICAgYmFja2dyb3VuZDogcmdi
-YSgxMCwxMCwyMCwwLjk3KTsKICAgICAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDEycHgpOwogICAg
-ICBib3JkZXItdG9wOiAxcHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwwLjA4KTsKICAgIH0KICAg
-IC50YWIgewogICAgICBmbGV4OiAxOwogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBmbGV4LWRp
-cmVjdGlvbjogY29sdW1uOwogICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICBqdXN0aWZ5
-LWNvbnRlbnQ6IGNlbnRlcjsKICAgICAgZ2FwOiAzcHg7CiAgICAgIGJvcmRlcjogbm9uZTsKICAg
-ICAgYmFja2dyb3VuZDogbm9uZTsKICAgICAgY29sb3I6IHJnYmEoMjU1LDI1NSwyNTUsMC4zKTsK
-ICAgICAgZm9udC1zaXplOiAxMXB4OwogICAgICBmb250LXdlaWdodDogNjAwOwogICAgICBsZXR0
-ZXItc3BhY2luZzogMC41cHg7CiAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgdHJhbnNpdGlv
-bjogY29sb3IgMC4yczsKICAgIH0KICAgIC50YWIuYWN0aXZlIHsgY29sb3I6ICNmZmY7IH0KICAg
-IC50YWItaWNvbiB7IGZvbnQtc2l6ZTogMjBweDsgbGluZS1oZWlnaHQ6IDE7IH0KCiAgICAvKiDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZAgKi8KICAgIC8qICBLQVQgUEFHRSAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICovCiAgICAvKiDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZAgKi8KICAgICNrYXQtcGFnZSB7IHRvdWNoLWFj
-dGlvbjogbm9uZTsgfQoKICAgICNoZWFkZXIgewogICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAg
-ICAgIHRvcDogMjhweDsKICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgICBsZXR0ZXItc3BhY2lu
-ZzogM3B4OwogICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOwogICAgICBjb2xvcjogcmdi
-YSgyNTUsMjU1LDI1NSwwLjM1KTsKICAgIH0KCiAgICAjY2FyZC13cmFwIHsKICAgICAgcG9zaXRp
-b246IHJlbGF0aXZlOwogICAgICB3aWR0aDogbWluKDMwMHB4LCA4NHZ3KTsKICAgICAgaGVpZ2h0
-OiBtaW4oMzkwcHgsIDY2dncgKyAxNzBweCk7CiAgICB9CgogICAgI2NhcmQgewogICAgICB3aWR0
-aDogMTAwJTsKICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICBib3JkZXItcmFkaXVzOiAzNnB4Owog
-ICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uOwogICAgICBh
-bGlnbi1pdGVtczogY2VudGVyOwogICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICAgICAg
-Y3Vyc29yOiBncmFiOwogICAgICB3aWxsLWNoYW5nZTogdHJhbnNmb3JtOwogICAgICBib3gtc2hh
-ZG93OiAwIDQwcHggMTAwcHggcmdiYSgwLDAsMCwwLjYpOwogICAgICBwb3NpdGlvbjogcmVsYXRp
-dmU7CiAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICAgIHRvdWNoLWFjdGlvbjogbm9uZTsKICAg
-IH0KICAgICNjYXJkOmFjdGl2ZSB7IGN1cnNvcjogZ3JhYmJpbmc7IH0KICAgICNjYXJkOjpiZWZv
-cmUgewogICAgICBjb250ZW50OiAnJzsKICAgICAgcG9zaXRpb246IGFic29sdXRlOwogICAgICBp
-bnNldDogMDsKICAgICAgYm9yZGVyLXJhZGl1czogMzZweDsKICAgICAgYmFja2dyb3VuZDogcmFk
-aWFsLWdyYWRpZW50KGVsbGlwc2UgYXQgMzAlIDIwJSwgcmdiYSgyNTUsMjU1LDI1NSwwLjA4KSAw
-JSwgdHJhbnNwYXJlbnQgNjAlKTsKICAgICAgcG9pbnRlci1ldmVudHM6IG5vbmU7CiAgICB9Cgog
-ICAgI2RyYWctZ2xvdyB7CiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgICAgaW5zZXQ6IDA7
-CiAgICAgIGJvcmRlci1yYWRpdXM6IDM2cHg7CiAgICAgIG9wYWNpdHk6IDA7CiAgICAgIHBvaW50
-ZXItZXZlbnRzOiBub25lOwogICAgICB0cmFuc2l0aW9uOiBvcGFjaXR5IDAuMXM7CiAgICB9Cgog
-ICAgI2Nhci1pY29uIHsgZm9udC1zaXplOiA1MnB4OyBtYXJnaW4tYm90dG9tOiAxMnB4OyB9Cgog
-ICAgI2Zsb29yLWxhYmVsIHsKICAgICAgZm9udC1zaXplOiAxMnB4OwogICAgICBmb250LXdlaWdo
-dDogNzAwOwogICAgICBsZXR0ZXItc3BhY2luZzogNHB4OwogICAgICB0ZXh0LXRyYW5zZm9ybTog
-dXBwZXJjYXNlOwogICAgICBvcGFjaXR5OiAwLjU1OwogICAgICBtYXJnaW4tYm90dG9tOiA0cHg7
-CiAgICB9CgogICAgI2Zsb29yLW51bWJlciB7CiAgICAgIGZvbnQtc2l6ZTogY2xhbXAoOTZweCwg
-Mjh2dywgMTMwcHgpOwogICAgICBmb250LXdlaWdodDogOTAwOwogICAgICBsaW5lLWhlaWdodDog
-MTsKICAgICAgbGV0dGVyLXNwYWNpbmc6IC02cHg7CiAgICB9CgogICAgI2Zsb29yLXRhZyB7CiAg
-ICAgIG1hcmdpbi10b3A6IDE0cHg7CiAgICAgIGZvbnQtc2l6ZTogMTdweDsKICAgICAgZm9udC13
-ZWlnaHQ6IDYwMDsKICAgICAgbGV0dGVyLXNwYWNpbmc6IDFweDsKICAgICAgcGFkZGluZzogNnB4
-IDIwcHg7CiAgICAgIGJvcmRlci1yYWRpdXM6IDEwMHB4OwogICAgICBiYWNrZ3JvdW5kOiByZ2Jh
-KDI1NSwyNTUsMjU1LDAuMTIpOwogICAgICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTsKICAg
-IH0KCiAgICAuaGludCB7CiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgICAgdG9wOiA1MCU7
-CiAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtNTAlKTsKICAgICAgZGlzcGxheTogZmxleDsK
-ICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsKICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjsK
-ICAgICAgZ2FwOiA2cHg7CiAgICAgIGNvbG9yOiByZ2JhKDI1NSwyNTUsMjU1LDAuMjUpOwogICAg
-ICBmb250LXNpemU6IDEycHg7CiAgICAgIGxldHRlci1zcGFjaW5nOiAxcHg7CiAgICB9CiAgICAj
-aGludC1sZWZ0ICB7IGxlZnQ6IC01MHB4OyB9CiAgICAjaGludC1yaWdodCB7IHJpZ2h0OiAtNTBw
-eDsgfQogICAgLmhpbnQtYXJyb3cgewogICAgICBmb250LXNpemU6IDI2cHg7CiAgICAgIGxpbmUt
-aGVpZ2h0OiAxOwogICAgICBhbmltYXRpb246IGJyZWF0aGUgMi40cyBlYXNlLWluLW91dCBpbmZp
-bml0ZTsKICAgIH0KICAgICNoaW50LXJpZ2h0IC5oaW50LWFycm93IHsgYW5pbWF0aW9uLWRlbGF5
-OiAxLjJzOyB9CiAgICBAa2V5ZnJhbWVzIGJyZWF0aGUgewogICAgICAwJSwxMDAlIHsgb3BhY2l0
-eTogMC4yOyB0cmFuc2Zvcm06IHNjYWxlKDAuOSk7IH0KICAgICAgNTAlICAgICAgeyBvcGFjaXR5
-OiAwLjY7IHRyYW5zZm9ybTogc2NhbGUoMS4wNSk7IH0KICAgIH0KCiAgICAjc2F2ZS1idG4gewog
-ICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAgIGJvdHRvbTogMTAwcHg7CiAgICAgIGJhY2tn
-cm91bmQ6IHJnYmEoMjU1LDI1NSwyNTUsMC4xKTsKICAgICAgYm9yZGVyOiAxLjVweCBzb2xpZCBy
-Z2JhKDI1NSwyNTUsMjU1LDAuMTUpOwogICAgICBjb2xvcjogI2ZmZjsKICAgICAgZm9udC1zaXpl
-OiAxNHB4OwogICAgICBmb250LXdlaWdodDogNjAwOwogICAgICBsZXR0ZXItc3BhY2luZzogMXB4
-OwogICAgICBwYWRkaW5nOiAxMHB4IDI4cHg7CiAgICAgIGJvcmRlci1yYWRpdXM6IDEwMHB4Owog
-ICAgICBjdXJzb3I6IHBvaW50ZXI7CiAgICAgIGJhY2tkcm9wLWZpbHRlcjogYmx1cig2cHgpOwog
-ICAgICB0cmFuc2l0aW9uOiBiYWNrZ3JvdW5kIDAuMnMsIHRyYW5zZm9ybSAwLjFzOwogICAgfQog
-ICAgI3NhdmUtYnRuOmFjdGl2ZSB7IGJhY2tncm91bmQ6IHJnYmEoMjU1LDI1NSwyNTUsMC4yKTsg
-dHJhbnNmb3JtOiBzY2FsZSgwLjk2KTsgfQoKICAgICNmbGFzaCB7CiAgICAgIHBvc2l0aW9uOiBh
-YnNvbHV0ZTsKICAgICAgYm90dG9tOiAxMDRweDsKICAgICAgZm9udC1zaXplOiAxNHB4OwogICAg
-ICBmb250LXdlaWdodDogNzAwOwogICAgICBvcGFjaXR5OiAwOwogICAgICBwb2ludGVyLWV2ZW50
-czogbm9uZTsKICAgICAgdHJhbnNpdGlvbjogb3BhY2l0eSAwLjNzOwogICAgfQoKICAgICNib3R0
-b20gewogICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAgIGJvdHRvbTogMzZweDsKICAgICAg
-dGV4dC1hbGlnbjogY2VudGVyOwogICAgfQogICAgI3NhdmVkLWxhYmVsIHsKICAgICAgZm9udC1z
-aXplOiAxM3B4OwogICAgICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwwLjMpOwogICAgICBsZXR0
-ZXItc3BhY2luZzogMC41cHg7CiAgICB9CiAgICAjc2F2ZWQtdmFsdWUgewogICAgICBmb250LXNp
-emU6IDE4cHg7CiAgICAgIGZvbnQtd2VpZ2h0OiA3MDA7CiAgICAgIG1hcmdpbi10b3A6IDRweDsK
-ICAgIH0KCiAgICAvKiDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZAgKi8KICAgIC8qICBBVk0gUEFHRSAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICovCiAgICAvKiDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZAgKi8KICAgICNhdm0t
-cGFnZSB7CiAgICAgIGdhcDogMjBweDsKICAgICAgcGFkZGluZzogMTZweCAxNnB4IDhweDsKICAg
-IH0KCiAgICAjYXZtLXRpdGxlIHsKICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgICBmb250LXdl
-aWdodDogNzAwOwogICAgICBsZXR0ZXItc3BhY2luZzogNHB4OwogICAgICB0ZXh0LXRyYW5zZm9y
-bTogdXBwZXJjYXNlOwogICAgICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwwLjM1KTsKICAgIH0K
-CiAgICAjYXZtLXNhdmVkLWNhcmQgewogICAgICB3aWR0aDogbWluKDMwMHB4LCA4NHZ3KTsKICAg
-ICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDE0NWRlZywgIzE4MGUyZSwgIzIwMTU0MCk7
-CiAgICAgIGJvcmRlci1yYWRpdXM6IDIwcHg7CiAgICAgIHBhZGRpbmc6IDE2cHggMjRweDsKICAg
-ICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICBib3gtc2hhZG93OiAwIDIwcHggNjBweCByZ2Jh
-KDAsMCwwLDAuNCk7CiAgICB9CiAgICAjYXZtLXNhdmVkLXRleHQgewogICAgICBmb250LXNpemU6
-IDEwcHg7CiAgICAgIGZvbnQtd2VpZ2h0OiA3MDA7CiAgICAgIGxldHRlci1zcGFjaW5nOiAzcHg7
-CiAgICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7CiAgICAgIGNvbG9yOiByZ2JhKDI1NSwy
-NTUsMjU1LDAuMyk7CiAgICAgIG1hcmdpbi1ib3R0b206IDZweDsKICAgIH0KICAgICNhdm0tc2F2
-ZWQtdmFsdWUgewogICAgICBmb250LXNpemU6IDMwcHg7CiAgICAgIGZvbnQtd2VpZ2h0OiA5MDA7
-CiAgICAgIGxldHRlci1zcGFjaW5nOiA0cHg7CiAgICB9CgogICAgLyogUGlja2VycyBjb250YWlu
-ZXIgKi8KICAgICNwaWNrZXJzLXdyYXAgewogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBnYXA6
-IDA7CiAgICAgIHdpZHRoOiBtaW4oMzAwcHgsIDg0dncpOwogICAgICBwb3NpdGlvbjogcmVsYXRp
-dmU7CiAgICAgIGJhY2tncm91bmQ6IHJnYmEoMjU1LDI1NSwyNTUsMC4wNCk7CiAgICAgIGJvcmRl
-ci1yYWRpdXM6IDIwcHg7CiAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICB9CgogICAgLyogU2Vs
-ZWN0aW9uIGhpZ2hsaWdodCBiYW5kICovCiAgICAjc2VsLWJhbmQgewogICAgICBwb3NpdGlvbjog
-YWJzb2x1dGU7CiAgICAgIGxlZnQ6IDA7CiAgICAgIHJpZ2h0OiAwOwogICAgICB0b3A6IDUwJTsK
-ICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC01MCUpOwogICAgICBoZWlnaHQ6IDUycHg7CiAg
-ICAgIGJhY2tncm91bmQ6IHJnYmEoMTY3LDEzOSwyNTAsMC4xKTsKICAgICAgYm9yZGVyLXRvcDog
-MXB4IHNvbGlkIHJnYmEoMTY3LDEzOSwyNTAsMC4yNSk7CiAgICAgIGJvcmRlci1ib3R0b206IDFw
-eCBzb2xpZCByZ2JhKDE2NywxMzksMjUwLDAuMjUpOwogICAgICBwb2ludGVyLWV2ZW50czogbm9u
-ZTsKICAgICAgei1pbmRleDogMTsKICAgIH0KCiAgICAucGlja2VyLWNvbCB7CiAgICAgIGZsZXg6
-IDE7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47CiAg
-ICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICB9CgogICAgLnBpY2tlci1sYWJlbCB7CiAgICAg
-IGZvbnQtc2l6ZTogMTBweDsKICAgICAgZm9udC13ZWlnaHQ6IDcwMDsKICAgICAgbGV0dGVyLXNw
-YWNpbmc6IDJweDsKICAgICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsKICAgICAgY29sb3I6
-IHJnYmEoMjU1LDI1NSwyNTUsMC4zKTsKICAgICAgcGFkZGluZzogMTBweCAwIDRweDsKICAgIH0K
-CiAgICAucGlja2VyIHsKICAgICAgd2lkdGg6IDEwMCU7CiAgICAgIGhlaWdodDogMTU2cHg7CiAg
-ICAgIG92ZXJmbG93LXk6IHNjcm9sbDsKICAgICAgc2Nyb2xsLXNuYXAtdHlwZTogeSBtYW5kYXRv
-cnk7CiAgICAgIC13ZWJraXQtb3ZlcmZsb3ctc2Nyb2xsaW5nOiB0b3VjaDsKICAgICAgc2Nyb2xs
-YmFyLXdpZHRoOiBub25lOwogICAgICB0b3VjaC1hY3Rpb246IHBhbi15OwogICAgfQogICAgLnBp
-Y2tlcjo6LXdlYmtpdC1zY3JvbGxiYXIgeyBkaXNwbGF5OiBub25lOyB9CgogICAgLnBpY2tlci1p
-dGVtIHsKICAgICAgaGVpZ2h0OiA1MnB4OwogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBhbGln
-bi1pdGVtczogY2VudGVyOwogICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICAgICAgc2Ny
-b2xsLXNuYXAtYWxpZ246IGNlbnRlcjsKICAgICAgZm9udC13ZWlnaHQ6IDgwMDsKICAgICAgdHJh
-bnNpdGlvbjogY29sb3IgMC4xMnMsIGZvbnQtc2l6ZSAwLjEyczsKICAgIH0KCiAgICAvKiBGYWRl
-IG1hc2tzIHRvcC9ib3R0b20gKi8KICAgIC5waWNrZXItY29sOjphZnRlciB7CiAgICAgIGNvbnRl
-bnQ6ICcnOwogICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAgIGxlZnQ6IDA7IHJpZ2h0OiAw
-OwogICAgICBoZWlnaHQ6IDYwcHg7CiAgICAgIHBvaW50ZXItZXZlbnRzOiBub25lOwogICAgICB6
-LWluZGV4OiAyOwogICAgfQoKICAgICNhdm0tc2F2ZS1idG4gewogICAgICBiYWNrZ3JvdW5kOiBy
-Z2JhKDE2NywxMzksMjUwLDAuMTIpOwogICAgICBib3JkZXI6IDEuNXB4IHNvbGlkIHJnYmEoMTY3
-LDEzOSwyNTAsMC4zKTsKICAgICAgY29sb3I6ICNhNzhiZmE7CiAgICAgIGZvbnQtc2l6ZTogMTRw
-eDsKICAgICAgZm9udC13ZWlnaHQ6IDcwMDsKICAgICAgbGV0dGVyLXNwYWNpbmc6IDFweDsKICAg
-ICAgcGFkZGluZzogMTJweCAzMnB4OwogICAgICBib3JkZXItcmFkaXVzOiAxMDBweDsKICAgICAg
-Y3Vyc29yOiBwb2ludGVyOwogICAgICB0cmFuc2l0aW9uOiBiYWNrZ3JvdW5kIDAuMnMsIHRyYW5z
-Zm9ybSAwLjFzOwogICAgfQogICAgI2F2bS1zYXZlLWJ0bjphY3RpdmUgeyBiYWNrZ3JvdW5kOiBy
-Z2JhKDE2NywxMzksMjUwLDAuMjUpOyB0cmFuc2Zvcm06IHNjYWxlKDAuOTYpOyB9CgogICAgI2F2
-bS1mbGFzaCB7CiAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgZm9udC13ZWlnaHQ6IDcwMDsK
-ICAgICAgY29sb3I6ICNhNzhiZmE7CiAgICAgIG9wYWNpdHk6IDA7CiAgICAgIHRyYW5zaXRpb246
-IG9wYWNpdHkgMC4zczsKICAgICAgbWluLWhlaWdodDogMTZweDsKICAgIH0KICA8L3N0eWxlPgo8
-L2hlYWQ+Cjxib2R5PgoKICA8IS0tIOKUgOKUgCBLQVQgUEFHRSDilIDilIAgLS0+CiAgPGRpdiBp
-ZD0ia2F0LXBhZ2UiIGNsYXNzPSJwYWdlIGFjdGl2ZSI+CiAgICA8ZGl2IGlkPSJoZWFkZXIiPkFy
-YcOnIEthdMSxbTwvZGl2PgoKICAgIDxkaXYgaWQ9ImNhcmQtd3JhcCI+CiAgICAgIDxkaXYgY2xh
-c3M9ImhpbnQiIGlkPSJoaW50LWxlZnQiPgogICAgICAgIDxkaXYgY2xhc3M9ImhpbnQtYXJyb3ci
-PuKAuTwvZGl2PgogICAgICAgIDxkaXY+4oiSMTwvZGl2PgogICAgICA8L2Rpdj4KICAgICAgPGRp
-diBjbGFzcz0iaGludCIgaWQ9ImhpbnQtcmlnaHQiPgogICAgICAgIDxkaXYgY2xhc3M9ImhpbnQt
-YXJyb3ciPuKAujwvZGl2PgogICAgICAgIDxkaXY+KzE8L2Rpdj4KICAgICAgPC9kaXY+CiAgICAg
-IDxkaXYgaWQ9ImNhcmQiPgogICAgICAgIDxkaXYgaWQ9ImRyYWctZ2xvdyI+PC9kaXY+CiAgICAg
-ICAgPGRpdiBpZD0iY2FyLWljb24iPvCfmpc8L2Rpdj4KICAgICAgICA8ZGl2IGlkPSJmbG9vci1s
-YWJlbCI+QXJhw6cgS2F0xLFtPC9kaXY+CiAgICAgICAgPGRpdiBpZD0iZmxvb3ItbnVtYmVyIj4w
-PC9kaXY+CiAgICAgICAgPGRpdiBpZD0iZmxvb3ItdGFnIj5aZW1pbiBLYXQ8L2Rpdj4KICAgICAg
-PC9kaXY+CiAgICA8L2Rpdj4KCiAgICA8YnV0dG9uIGlkPSJzYXZlLWJ0biI+8J+TjSBCdSBLYXTE
-sSBLYXlkZXQ8L2J1dHRvbj4KICAgIDxkaXYgaWQ9ImZsYXNoIj7inJMgS2F5ZGVkaWxkaSE8L2Rp
-dj4KCiAgICA8ZGl2IGlkPSJib3R0b20iPgogICAgICA8ZGl2IGlkPSJzYXZlZC1sYWJlbCI+U29u
-IGtheWRlZGlsZW4ga2F0PC9kaXY+CiAgICAgIDxkaXYgaWQ9InNhdmVkLXZhbHVlIiBzdHlsZT0i
-Y29sb3I6cmdiYSgyNTUsMjU1LDI1NSwwLjM1KSI+4oCUPC9kaXY+CiAgICA8L2Rpdj4KICA8L2Rp
-dj4KCiAgPCEtLSDilIDilIAgQVZNIFBBR0Ug4pSA4pSAIC0tPgogIDxkaXYgaWQ9ImF2bS1wYWdl
-IiBjbGFzcz0icGFnZSI+CiAgICA8ZGl2IGlkPSJhdm0tdGl0bGUiPkFWTSBQYXJrIFllcmk8L2Rp
-dj4KCiAgICA8ZGl2IGlkPSJhdm0tc2F2ZWQtY2FyZCI+CiAgICAgIDxkaXYgaWQ9ImF2bS1zYXZl
-ZC10ZXh0Ij5LYXnEsXRsxLEgUGFyayBZZXJpPC9kaXY+CiAgICAgIDxkaXYgaWQ9ImF2bS1zYXZl
-ZC12YWx1ZSIgc3R5bGU9ImNvbG9yOnJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiPuKAlDwvZGl2Pgog
-ICAgPC9kaXY+CgogICAgPGRpdiBpZD0icGlja2Vycy13cmFwIj4KICAgICAgPGRpdiBpZD0ic2Vs
-LWJhbmQiPjwvZGl2PgoKICAgICAgPGRpdiBjbGFzcz0icGlja2VyLWNvbCI+CiAgICAgICAgPGRp
-diBjbGFzcz0icGlja2VyLWxhYmVsIj5LYXQ8L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJwaWNr
-ZXIiIGlkPSJwaWNrZXIta2F0Ij48L2Rpdj4KICAgICAgPC9kaXY+CgogICAgICA8ZGl2IGNsYXNz
-PSJwaWNrZXItY29sIj4KICAgICAgICA8ZGl2IGNsYXNzPSJwaWNrZXItbGFiZWwiPkhhcmY8L2Rp
-dj4KICAgICAgICA8ZGl2IGNsYXNzPSJwaWNrZXIiIGlkPSJwaWNrZXItaGFyZiI+PC9kaXY+CiAg
-ICAgIDwvZGl2PgoKICAgICAgPGRpdiBjbGFzcz0icGlja2VyLWNvbCI+CiAgICAgICAgPGRpdiBj
-bGFzcz0icGlja2VyLWxhYmVsIj5OdW1hcmE8L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJwaWNr
-ZXIiIGlkPSJwaWNrZXItbnVtYXJhIj48L2Rpdj4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KCiAg
-ICA8YnV0dG9uIGlkPSJhdm0tc2F2ZS1idG4iPvCfk40gUGFyayBZZXJpbmkgS2F5ZGV0PC9idXR0
-b24+CiAgICA8ZGl2IGlkPSJhdm0tZmxhc2giPuKckyBLYXlkZWRpbGRpITwvZGl2PgogIDwvZGl2
-PgoKICA8IS0tIOKUgOKUgCBUQUIgQkFSIOKUgOKUgCAtLT4KICA8ZGl2IGlkPSJ0YWItYmFyIj4K
-ICAgIDxidXR0b24gY2xhc3M9InRhYiBhY3RpdmUiIGRhdGEtcGFnZT0ia2F0LXBhZ2UiPgogICAg
-ICA8c3BhbiBjbGFzcz0idGFiLWljb24iPvCfmpc8L3NwYW4+CiAgICAgIDxzcGFuPkthdMSxbTwv
-c3Bhbj4KICAgIDwvYnV0dG9uPgogICAgPGJ1dHRvbiBjbGFzcz0idGFiIiBkYXRhLXBhZ2U9ImF2
-bS1wYWdlIj4KICAgICAgPHNwYW4gY2xhc3M9InRhYi1pY29uIj7wn4+sPC9zcGFuPgogICAgICA8
-c3Bhbj5BVk08L3NwYW4+CiAgICA8L2J1dHRvbj4KICA8L2Rpdj4KCjxzY3JpcHQ+CiAgLy8g4pSA
-4pSAIFRhYiBuYXZpZ2F0aW9uIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKU
-gOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKU
-gOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgAogIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwo
-Jy50YWInKS5mb3JFYWNoKHRhYiA9PiB7CiAgICB0YWIuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2sn
-LCAoKSA9PiB7CiAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJy50YWInKS5mb3JFYWNo
-KHQgPT4gdC5jbGFzc0xpc3QucmVtb3ZlKCdhY3RpdmUnKSk7CiAgICAgIGRvY3VtZW50LnF1ZXJ5
-U2VsZWN0b3JBbGwoJy5wYWdlJykuZm9yRWFjaChwID0+IHAuY2xhc3NMaXN0LnJlbW92ZSgnYWN0
-aXZlJykpOwogICAgICB0YWIuY2xhc3NMaXN0LmFkZCgnYWN0aXZlJyk7CiAgICAgIGRvY3VtZW50
-LmdldEVsZW1lbnRCeUlkKHRhYi5kYXRhc2V0LnBhZ2UpLmNsYXNzTGlzdC5hZGQoJ2FjdGl2ZScp
-OwogICAgfSk7CiAgfSk7CgogIC8vIOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkAogIC8vICBLQVQgUEFHRQogIC8vIOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkAogIGZ1bmN0
-aW9uIHRoZW1lKGZsb29yKSB7CiAgICBpZiAoZmxvb3IgPT09IDApIHJldHVybiB7IG51bTogJyM0
-YWRlODAnLCB0YWc6ICdaZW1pbiBLYXQnLCBiZzogJ2xpbmVhci1ncmFkaWVudCgxNDVkZWcsIzE0
-MjkxZSwjMWEzNTI4KScsIGdsb3c6ICdyZ2JhKDc0LDIyMiwxMjgsMC4yNSknIH07CiAgICBpZiAo
-Zmxvb3IgPCAwKSAgcmV0dXJuIHsgbnVtOiAnIzYwYTVmYScsIHRhZzogYEIke01hdGguYWJzKGZs
-b29yKX1gLCBiZzogJ2xpbmVhci1ncmFkaWVudCgxNDVkZWcsIzBlMTgzMCwjMTMyMDQwKScsIGds
-b3c6ICdyZ2JhKDk2LDE2NSwyNTAsMC4yNSknIH07CiAgICByZXR1cm4geyBudW06ICcjZmI5MjNj
-JywgdGFnOiBgJHtmbG9vcn0uIEthdGAsIGJnOiAnbGluZWFyLWdyYWRpZW50KDE0NWRlZywjMjYx
-NTA4LCMzMDFjMTApJywgZ2xvdzogJ3JnYmEoMjUxLDE0Niw2MCwwLjI1KScgfTsKICB9CgogIGNv
-bnN0IGNhcmQgICAgID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2NhcmQnKTsKICBjb25zdCBk
-cmFnR2xvdyA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkcmFnLWdsb3cnKTsKICBjb25zdCBu
-dW1FbCAgICA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdmbG9vci1udW1iZXInKTsKICBjb25z
-dCB0YWdFbCAgICA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdmbG9vci10YWcnKTsKICBjb25z
-dCBzYXZlZFZhbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzYXZlZC12YWx1ZScpOwogIGNv
-bnN0IHNhdmVCdG4gID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3NhdmUtYnRuJyk7CiAgY29u
-c3QgZmxhc2hFbCAgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZmxhc2gnKTsKCiAgbGV0IGN1
-cnJlbnQgPSBwYXJzZUludChsb2NhbFN0b3JhZ2UuZ2V0SXRlbSgnY3VycmVudEZsb29yJykgfHwg
-JzAnKTsKICBsZXQgc2F2ZWQgICA9IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdzYXZlZEZsb29yJyk7
-CgogIGZ1bmN0aW9uIHJlbmRlcihmbG9vciwgYW5pbWF0ZSkgewogICAgY29uc3QgdCA9IHRoZW1l
-KGZsb29yKTsKICAgIG51bUVsLnRleHRDb250ZW50ID0gZmxvb3I7CiAgICBudW1FbC5zdHlsZS5j
-b2xvciA9IHQubnVtOwogICAgdGFnRWwudGV4dENvbnRlbnQgPSB0LnRhZzsKICAgIGNhcmQuc3R5
-bGUudHJhbnNpdGlvbiA9IGFuaW1hdGUgPyAnYmFja2dyb3VuZCAwLjVzIGVhc2UnIDogJ25vbmUn
-OwogICAgY2FyZC5zdHlsZS5iYWNrZ3JvdW5kID0gdC5iZzsKICAgIGlmIChzYXZlZCAhPT0gbnVs
-bCkgewogICAgICBjb25zdCBzID0gcGFyc2VJbnQoc2F2ZWQpOwogICAgICBjb25zdCBzdCA9IHRo
-ZW1lKHMpOwogICAgICBzYXZlZFZhbC50ZXh0Q29udGVudCA9IGAke3N9ICDigKIgICR7c3QudGFn
-fWA7CiAgICAgIHNhdmVkVmFsLnN0eWxlLmNvbG9yID0gc3QubnVtOwogICAgfSBlbHNlIHsKICAg
-ICAgc2F2ZWRWYWwudGV4dENvbnRlbnQgPSAn4oCUJzsKICAgICAgc2F2ZWRWYWwuc3R5bGUuY29s
-b3IgPSAncmdiYSgyNTUsMjU1LDI1NSwwLjM1KSc7CiAgICB9CiAgfQoKICBmdW5jdGlvbiBzcHJp
-bmdTbmFwKCkgewogICAgY2FyZC5zdHlsZS50cmFuc2l0aW9uID0gJ3RyYW5zZm9ybSAwLjU1cyBj
-dWJpYy1iZXppZXIoMC4zNCwxLjU2LDAuNjQsMSknOwogICAgY2FyZC5zdHlsZS50cmFuc2Zvcm0g
-ID0gJ3RyYW5zbGF0ZVgoMCkgcm90YXRlKDBkZWcpJzsKICAgIGRyYWdHbG93LnN0eWxlLm9wYWNp
-dHkgPSAnMCc7CiAgICBzZXRUaW1lb3V0KCgpID0+IHsgY2FyZC5zdHlsZS50cmFuc2l0aW9uID0g
-Jyc7IH0sIDU1MCk7CiAgfQogIGZ1bmN0aW9uIGJvdW5jZUJhY2soKSB7CiAgICBjYXJkLnN0eWxl
-LnRyYW5zaXRpb24gPSAndHJhbnNmb3JtIDAuNDVzIGN1YmljLWJlemllcigwLjM0LDEuNTYsMC42
-NCwxKSc7CiAgICBjYXJkLnN0eWxlLnRyYW5zZm9ybSAgPSAndHJhbnNsYXRlWCgwKSByb3RhdGUo
-MGRlZyknOwogICAgZHJhZ0dsb3cuc3R5bGUub3BhY2l0eSA9ICcwJzsKICAgIHNldFRpbWVvdXQo
-KCkgPT4geyBjYXJkLnN0eWxlLnRyYW5zaXRpb24gPSAnJzsgfSwgNDUwKTsKICB9CiAgZnVuY3Rp
-b24gY2hhbmdlRmxvb3IoZGVsdGEpIHsKICAgIGN1cnJlbnQgKz0gZGVsdGE7CiAgICBsb2NhbFN0
-b3JhZ2Uuc2V0SXRlbSgnY3VycmVudEZsb29yJywgY3VycmVudCk7CiAgICBzcHJpbmdTbmFwKCk7
-CiAgICBzZXRUaW1lb3V0KCgpID0+IHJlbmRlcihjdXJyZW50LCB0cnVlKSwgODApOwogIH0KICBm
-dW5jdGlvbiBzaG93Rmxhc2goY29sb3IpIHsKICAgIGZsYXNoRWwuc3R5bGUuY29sb3IgPSBjb2xv
-cjsKICAgIGZsYXNoRWwuc3R5bGUub3BhY2l0eSA9ICcxJzsKICAgIHNhdmVCdG4uc3R5bGUub3Bh
-Y2l0eSA9ICcwJzsKICAgIHNldFRpbWVvdXQoKCkgPT4geyBmbGFzaEVsLnN0eWxlLm9wYWNpdHkg
-PSAnMCc7IHNhdmVCdG4uc3R5bGUub3BhY2l0eSA9ICcxJzsgfSwgMTIwMCk7CiAgfQoKICBzYXZl
-QnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4gewogICAgc2F2ZWQgPSBjdXJyZW50
-OwogICAgbG9jYWxTdG9yYWdlLnNldEl0ZW0oJ3NhdmVkRmxvb3InLCBzYXZlZCk7CiAgICByZW5k
-ZXIoY3VycmVudCwgZmFsc2UpOwogICAgc2hvd0ZsYXNoKHRoZW1lKGN1cnJlbnQpLm51bSk7CiAg
-fSk7CgogIGxldCBzdGFydFggPSAwLCBkeCA9IDAsIHZ4ID0gMCwgcHJldlggPSAwLCBwcmV2VCA9
-IDAsIGRyYWdnaW5nID0gZmFsc2U7CiAgY29uc3QgVEhSRVNIT0xEID0gNTUsIFZFTF9USFJFU0gg
-PSAwLjM1LCBEQU1QSU5HID0gMC40MjsKCiAgZnVuY3Rpb24gb25TdGFydChjbGllbnRYKSB7CiAg
-ICBzdGFydFggPSBjbGllbnRYOyBkeCA9IDA7IHZ4ID0gMDsKICAgIHByZXZYID0gY2xpZW50WDsg
-cHJldlQgPSBEYXRlLm5vdygpOwogICAgZHJhZ2dpbmcgPSB0cnVlOwogICAgY2FyZC5zdHlsZS50
-cmFuc2l0aW9uID0gJyc7CiAgfQogIGZ1bmN0aW9uIG9uTW92ZShjbGllbnRYKSB7CiAgICBpZiAo
-IWRyYWdnaW5nKSByZXR1cm47CiAgICBjb25zdCBub3cgPSBEYXRlLm5vdygpOwogICAgZHggPSBj
-bGllbnRYIC0gc3RhcnRYOwogICAgdnggPSAoY2xpZW50WCAtIHByZXZYKSAvIE1hdGgubWF4KG5v
-dyAtIHByZXZULCAxKTsKICAgIHByZXZYID0gY2xpZW50WDsgcHJldlQgPSBub3c7CiAgICBjb25z
-dCB0cmFuc2xhdGVkID0gZHggKiBEQU1QSU5HOwogICAgY29uc3Qgcm90ID0gKGR4IC8gd2luZG93
-LmlubmVyV2lkdGgpICogMTA7CiAgICBjYXJkLnN0eWxlLnRyYW5zZm9ybSA9IGB0cmFuc2xhdGVY
-KCR7dHJhbnNsYXRlZH1weCkgcm90YXRlKCR7cm90fWRlZylgOwogICAgY29uc3QgdCA9IHRoZW1l
-KGN1cnJlbnQpOwogICAgaWYgKE1hdGguYWJzKGR4KSA+IDE1KSB7CiAgICAgIGRyYWdHbG93LnN0
-eWxlLmJhY2tncm91bmQgPSBkeCA+IDAKICAgICAgICA/IGBsaW5lYXItZ3JhZGllbnQodG8gcmln
-aHQsIHRyYW5zcGFyZW50LCAke3QuZ2xvd30pYAogICAgICAgIDogYGxpbmVhci1ncmFkaWVudCh0
-byBsZWZ0LCB0cmFuc3BhcmVudCwgJHt0Lmdsb3d9KWA7CiAgICAgIGRyYWdHbG93LnN0eWxlLm9w
-YWNpdHkgPSBTdHJpbmcoTWF0aC5taW4oTWF0aC5hYnMoZHgpIC8gMTIwLCAxKSk7CiAgICB9IGVs
-c2UgewogICAgICBkcmFnR2xvdy5zdHlsZS5vcGFjaXR5ID0gJzAnOwogICAgfQogIH0KICBmdW5j
-dGlvbiBvbkVuZCgpIHsKICAgIGlmICghZHJhZ2dpbmcpIHJldHVybjsKICAgIGRyYWdnaW5nID0g
-ZmFsc2U7CiAgICBpZiAgICAgIChkeCA+ICBUSFJFU0hPTEQgfHwgdnggPiAgVkVMX1RIUkVTSCkg
-Y2hhbmdlRmxvb3IoKzEpOwogICAgZWxzZSBpZiAoZHggPCAtVEhSRVNIT0xEIHx8IHZ4IDwgLVZF
-TF9USFJFU0gpIGNoYW5nZUZsb29yKC0xKTsKICAgIGVsc2UgYm91bmNlQmFjaygpOwogICAgZHgg
-PSAwOwogIH0KCiAgY2FyZC5hZGRFdmVudExpc3RlbmVyKCd0b3VjaHN0YXJ0JywgZSA9PiB7IGlm
-IChlLnRvdWNoZXMubGVuZ3RoID09PSAxKSBvblN0YXJ0KGUudG91Y2hlc1swXS5jbGllbnRYKTsg
-fSwgeyBwYXNzaXZlOiB0cnVlIH0pOwogIGNhcmQuYWRkRXZlbnRMaXN0ZW5lcigndG91Y2htb3Zl
-JywgIGUgPT4gb25Nb3ZlKGUudG91Y2hlc1swXS5jbGllbnRYKSwgeyBwYXNzaXZlOiB0cnVlIH0p
-OwogIGNhcmQuYWRkRXZlbnRMaXN0ZW5lcigndG91Y2hlbmQnLCAgIG9uRW5kKTsKICBjYXJkLmFk
-ZEV2ZW50TGlzdGVuZXIoJ3RvdWNoY2FuY2VsJyxvbkVuZCk7CiAgY2FyZC5hZGRFdmVudExpc3Rl
-bmVyKCdtb3VzZWRvd24nLCBlID0+IHsgb25TdGFydChlLmNsaWVudFgpOyBlLnByZXZlbnREZWZh
-dWx0KCk7IH0pOwogIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ21vdXNlbW92ZScsIGUgPT4g
-eyBpZiAoZHJhZ2dpbmcpIG9uTW92ZShlLmNsaWVudFgpOyB9KTsKICBkb2N1bWVudC5hZGRFdmVu
-dExpc3RlbmVyKCdtb3VzZXVwJywgb25FbmQpOwoKICByZW5kZXIoY3VycmVudCwgZmFsc2UpOwoK
-ICAvLyDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZAKICAvLyAgQVZNIFBBR0Ug4oCUIERSVU0gUElDS0VSUwogIC8vIOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkAogIGNvbnN0
-IElURU1fSCAgPSA1MjsKICBjb25zdCBGTE9PUlMgID0gWydCNScsJ0I0JywnQjMnLCdCMicsJ0Ix
-JywnWicsJzEnLCcyJywnMycsJzQnLCc1J107CiAgY29uc3QgSEFSRkxFUiA9IFsnQScsJ0InLCdD
-JywnRCcsJ0UnLCdGJywnRycsJ0gnLCdJJywnSicsJ0snLCdMJywnTScsJ04nLCdPJywnUCcsJ1In
-LCdTJywnVCcsJ1UnLCdWJywnWScsJ1onXTsKICBjb25zdCBOVU1BUkFMQVIgPSBBcnJheS5mcm9t
-KHsgbGVuZ3RoOiA5OSB9LCAoXywgaSkgPT4gU3RyaW5nKGkgKyAxKSk7CgogIGZ1bmN0aW9uIGJ1
-aWxkUGlja2VyKGlkLCBpdGVtcykgewogICAgY29uc3QgZWwgPSBkb2N1bWVudC5nZXRFbGVtZW50
-QnlJZChpZCk7CiAgICBjb25zdCBzcGFjZXIgPSAoKSA9PiB7IGNvbnN0IGQgPSBkb2N1bWVudC5j
-cmVhdGVFbGVtZW50KCdkaXYnKTsgZC5zdHlsZS5oZWlnaHQgPSBJVEVNX0ggKyAncHgnOyByZXR1
-cm4gZDsgfTsKICAgIGVsLmFwcGVuZENoaWxkKHNwYWNlcigpKTsKICAgIGl0ZW1zLmZvckVhY2go
-dmFsID0+IHsKICAgICAgY29uc3QgZCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpOwog
-ICAgICBkLmNsYXNzTmFtZSA9ICdwaWNrZXItaXRlbSc7CiAgICAgIGQudGV4dENvbnRlbnQgPSB2
-YWw7CiAgICAgIGVsLmFwcGVuZENoaWxkKGQpOwogICAgfSk7CiAgICBlbC5hcHBlbmRDaGlsZChz
-cGFjZXIoKSk7CiAgfQoKICBidWlsZFBpY2tlcigncGlja2VyLWthdCcsICAgIEZMT09SUyk7CiAg
-YnVpbGRQaWNrZXIoJ3BpY2tlci1oYXJmJywgICBIQVJGTEVSKTsKICBidWlsZFBpY2tlcigncGlj
-a2VyLW51bWFyYScsIE5VTUFSQUxBUik7CgogIGNvbnN0IHBLYXQgICAgPSBkb2N1bWVudC5nZXRF
-bGVtZW50QnlJZCgncGlja2VyLWthdCcpOwogIGNvbnN0IHBIYXJmICAgPSBkb2N1bWVudC5nZXRF
-bGVtZW50QnlJZCgncGlja2VyLWhhcmYnKTsKICBjb25zdCBwTnVtYXJhID0gZG9jdW1lbnQuZ2V0
-RWxlbWVudEJ5SWQoJ3BpY2tlci1udW1hcmEnKTsKCiAgZnVuY3Rpb24gZ2V0SWR4KHBpY2tlcikg
-ewogICAgcmV0dXJuIE1hdGgucm91bmQocGlja2VyLnNjcm9sbFRvcCAvIElURU1fSCk7CiAgfQoK
-ICBmdW5jdGlvbiBoaWdobGlnaHQocGlja2VyKSB7CiAgICBjb25zdCBpdGVtcyA9IHBpY2tlci5x
-dWVyeVNlbGVjdG9yQWxsKCcucGlja2VyLWl0ZW0nKTsKICAgIGNvbnN0IHNlbCA9IGdldElkeChw
-aWNrZXIpOwogICAgaXRlbXMuZm9yRWFjaCgoaXRlbSwgaSkgPT4gewogICAgICBjb25zdCBkaXN0
-ID0gTWF0aC5hYnMoaSAtIHNlbCk7CiAgICAgIGlmIChkaXN0ID09PSAwKSAgICAgIHsgaXRlbS5z
-dHlsZS5jb2xvciA9ICcjZmZmJzsgICAgICAgICAgICAgICAgICAgIGl0ZW0uc3R5bGUuZm9udFNp
-emUgPSAnMjJweCc7IH0KICAgICAgZWxzZSBpZiAoZGlzdCA9PT0gMSkgeyBpdGVtLnN0eWxlLmNv
-bG9yID0gJ3JnYmEoMjU1LDI1NSwyNTUsMC4zNSknOyAgaXRlbS5zdHlsZS5mb250U2l6ZSA9ICcx
-N3B4JzsgfQogICAgICBlbHNlICAgICAgICAgICAgICAgICB7IGl0ZW0uc3R5bGUuY29sb3IgPSAn
-cmdiYSgyNTUsMjU1LDI1NSwwLjEpJzsgICBpdGVtLnN0eWxlLmZvbnRTaXplID0gJzEzcHgnOyB9
-CiAgICB9KTsKICB9CgogIFtwS2F0LCBwSGFyZiwgcE51bWFyYV0uZm9yRWFjaChwID0+IHsKICAg
-IHAuYWRkRXZlbnRMaXN0ZW5lcignc2Nyb2xsJywgKCkgPT4gaGlnaGxpZ2h0KHApLCB7IHBhc3Np
-dmU6IHRydWUgfSk7CiAgfSk7CgogIGZ1bmN0aW9uIHNldFBpY2tlclRvKHBpY2tlciwgaXRlbXMs
-IHZhbHVlKSB7CiAgICBjb25zdCBpZHggPSBpdGVtcy5pbmRleE9mKHZhbHVlKTsKICAgIHBpY2tl
-ci5zY3JvbGxUb3AgPSAoaWR4ID49IDAgPyBpZHggOiAwKSAqIElURU1fSDsKICAgIGhpZ2hsaWdo
-dChwaWNrZXIpOwogIH0KCiAgLy8gSW5pdCBwb3NpdGlvbnMgZnJvbSBsb2NhbFN0b3JhZ2UKICBj
-b25zdCBhdm1TcG90ID0gSlNPTi5wYXJzZShsb2NhbFN0b3JhZ2UuZ2V0SXRlbSgnYXZtU3BvdCcp
-IHx8ICdudWxsJyk7CiAgc2V0VGltZW91dCgoKSA9PiB7CiAgICBzZXRQaWNrZXJUbyhwS2F0LCAg
-ICBGTE9PUlMsICAgICBhdm1TcG90ID8gYXZtU3BvdC5rYXQgICAgOiAnWicpOwogICAgc2V0UGlj
-a2VyVG8ocEhhcmYsICAgSEFSRkxFUiwgICAgYXZtU3BvdCA/IGF2bVNwb3QuaGFyZiAgIDogJ0En
-KTsKICAgIHNldFBpY2tlclRvKHBOdW1hcmEsIE5VTUFSQUxBUiwgIGF2bVNwb3QgPyBhdm1TcG90
-Lm51bWFyYSA6ICcxJyk7CiAgfSwgNjApOwoKICBmdW5jdGlvbiB1cGRhdGVBdm1EaXNwbGF5KCkg
-ewogICAgY29uc3Qgc3BvdCA9IEpTT04ucGFyc2UobG9jYWxTdG9yYWdlLmdldEl0ZW0oJ2F2bVNw
-b3QnKSB8fCAnbnVsbCcpOwogICAgY29uc3QgZWwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgn
-YXZtLXNhdmVkLXZhbHVlJyk7CiAgICBpZiAoc3BvdCkgewogICAgICBlbC50ZXh0Q29udGVudCA9
-IGAke3Nwb3Qua2F0fSDCtyAke3Nwb3QuaGFyZn0gwrcgJHtzcG90Lm51bWFyYX1gOwogICAgICBl
-bC5zdHlsZS5jb2xvciA9ICcjYTc4YmZhJzsKICAgIH0gZWxzZSB7CiAgICAgIGVsLnRleHRDb250
-ZW50ID0gJ+KAlCc7CiAgICAgIGVsLnN0eWxlLmNvbG9yID0gJ3JnYmEoMjU1LDI1NSwyNTUsMC4y
-NSknOwogICAgfQogIH0KCiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2F2bS1zYXZlLWJ0bicp
-LmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4gewogICAgY29uc3Qgc3BvdCA9IHsKICAg
-ICAga2F0OiAgICBGTE9PUlNbZ2V0SWR4KHBLYXQpXSAgICAgICB8fCAnWicsCiAgICAgIGhhcmY6
-ICAgSEFSRkxFUltnZXRJZHgocEhhcmYpXSAgICAgfHwgJ0EnLAogICAgICBudW1hcmE6IE5VTUFS
-QUxBUltnZXRJZHgocE51bWFyYSldIHx8ICcxJywKICAgIH07CiAgICBsb2NhbFN0b3JhZ2Uuc2V0
-SXRlbSgnYXZtU3BvdCcsIEpTT04uc3RyaW5naWZ5KHNwb3QpKTsKICAgIHVwZGF0ZUF2bURpc3Bs
-YXkoKTsKCiAgICBjb25zdCBidG4gICA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdhdm0tc2F2
-ZS1idG4nKTsKICAgIGNvbnN0IGZsYXNoID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2F2bS1m
-bGFzaCcpOwogICAgZmxhc2guc3R5bGUub3BhY2l0eSA9ICcxJzsKICAgIGJ0bi5zdHlsZS5vcGFj
-aXR5ICAgPSAnMCc7CiAgICBzZXRUaW1lb3V0KCgpID0+IHsgZmxhc2guc3R5bGUub3BhY2l0eSA9
-ICcwJzsgYnRuLnN0eWxlLm9wYWNpdHkgPSAnMSc7IH0sIDEyMDApOwogIH0pOwoKICB1cGRhdGVB
-dm1EaXNwbGF5KCk7Cjwvc2NyaXB0Pgo8L2JvZHk+CjwvaHRtbD4K
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Araç Katım</title>
+  <style>
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      margin: 0;
+      background: #0d0d1a;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      height: 100svh;
+      overflow: hidden;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page {
+      display: none;
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .page.active { display: flex; }
+
+    /* ── Tab Bar ── */
+    #tab-bar {
+      height: 60px;
+      flex-shrink: 0;
+      display: flex;
+      background: rgba(10,10,20,0.97);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .tab {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      border: none;
+      background: none;
+      color: rgba(255,255,255,0.3);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .tab.active { color: #fff; }
+    .tab-icon { font-size: 20px; line-height: 1; }
+
+    /* ══════════════════════════════════════════ */
+    /*  KAT PAGE                                 */
+    /* ══════════════════════════════════════════ */
+    #kat-page { touch-action: none; }
+
+    #header {
+      position: absolute;
+      top: 28px;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    #card-wrap {
+      position: relative;
+      width: min(300px, 84vw);
+      height: min(390px, 66vw + 170px);
+    }
+
+    #card {
+      width: 100%; height: 100%;
+      border-radius: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+      will-change: transform;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+      touch-action: none;
+    }
+    #card:active { cursor: grabbing; }
+    #card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 36px;
+      background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    #drag-glow {
+      position: absolute; inset: 0;
+      border-radius: 36px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.1s;
+    }
+
+    #car-icon { font-size: 52px; margin-bottom: 12px; }
+
+    #floor-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      opacity: 0.55; margin-bottom: 4px;
+    }
+
+    #floor-number {
+      font-size: clamp(96px, 28vw, 130px);
+      font-weight: 900; line-height: 1; letter-spacing: -6px;
+    }
+
+    #floor-tag {
+      margin-top: 14px; font-size: 17px; font-weight: 600;
+      letter-spacing: 1px; padding: 6px 20px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+    }
+
+    .hint {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.25); font-size: 12px; letter-spacing: 1px;
+    }
+    #hint-left  { left: -50px; }
+    #hint-right { right: -50px; }
+    .hint-arrow {
+      font-size: 26px; line-height: 1;
+      animation: breathe 2.4s ease-in-out infinite;
+    }
+    #hint-right .hint-arrow { animation-delay: 1.2s; }
+    @keyframes breathe {
+      0%,100% { opacity: 0.2; transform: scale(0.9); }
+      50%      { opacity: 0.6; transform: scale(1.05); }
+    }
+
+    #save-btn {
+      position: absolute; bottom: 100px;
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      color: #fff; font-size: 14px; font-weight: 600;
+      letter-spacing: 1px; padding: 10px 28px;
+      border-radius: 100px; cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s, transform 0.1s;
+    }
+    #save-btn:active { background: rgba(255,255,255,0.2); transform: scale(0.96); }
+
+    #flash {
+      position: absolute; bottom: 104px;
+      font-size: 14px; font-weight: 700;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    #bottom {
+      position: absolute; bottom: 36px; text-align: center;
+    }
+    #saved-label { font-size: 13px; color: rgba(255,255,255,0.3); letter-spacing: 0.5px; }
+    #saved-value { font-size: 18px; font-weight: 700; margin-top: 4px; }
+
+    /* ══════════════════════════════════════════ */
+    /*  AVM PAGE                                 */
+    /* ══════════════════════════════════════════ */
+    #avm-page { gap: 20px; padding: 16px 16px 8px; }
+
+    #avm-title {
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    #avm-saved-card {
+      width: min(300px, 84vw);
+      background: linear-gradient(145deg, #180e2e, #201540);
+      border-radius: 20px; padding: 16px 24px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    #avm-saved-text {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); margin-bottom: 6px;
+    }
+    #avm-saved-value { font-size: 30px; font-weight: 900; letter-spacing: 4px; }
+
+    #pickers-wrap {
+      display: flex; gap: 0;
+      width: min(300px, 84vw);
+      position: relative;
+      background: rgba(255,255,255,0.04);
+      border-radius: 20px; overflow: hidden;
+    }
+
+    #sel-band {
+      position: absolute; left: 0; right: 0;
+      top: 50%; transform: translateY(-50%);
+      height: 52px;
+      background: rgba(167,139,250,0.1);
+      border-top: 1px solid rgba(167,139,250,0.25);
+      border-bottom: 1px solid rgba(167,139,250,0.25);
+      pointer-events: none; z-index: 1;
+    }
+
+    .picker-col { flex: 1; display: flex; flex-direction: column; align-items: center; }
+
+    .picker-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); padding: 10px 0 4px;
+    }
+
+    .picker {
+      width: 100%; height: 156px;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      touch-action: pan-y;
+    }
+    .picker::-webkit-scrollbar { display: none; }
+
+    .picker-item {
+      height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      scroll-snap-align: center;
+      font-weight: 800;
+      transition: color 0.12s, font-size 0.12s;
+    }
+
+    #avm-save-btn {
+      background: rgba(167,139,250,0.12);
+      border: 1.5px solid rgba(167,139,250,0.3);
+      color: #a78bfa; font-size: 14px; font-weight: 700;
+      letter-spacing: 1px; padding: 12px 32px;
+      border-radius: 100px; cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    #avm-save-btn:active { background: rgba(167,139,250,0.25); transform: scale(0.96); }
+
+    #avm-flash {
+      font-size: 14px; font-weight: 700;
+      color: #a78bfa; opacity: 0;
+      transition: opacity 0.3s; min-height: 16px;
+    }
+
+    /* ══════════════════════════════════════════ */
+    /*  SÜRE PAGE                                */
+    /* ══════════════════════════════════════════ */
+    #sure-page {
+      gap: 14px;
+      padding: 16px 16px 12px;
+      overflow-y: auto;
+      touch-action: pan-y;
+      justify-content: flex-start;
+      padding-top: 24px;
+    }
+
+    #sure-title {
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      flex-shrink: 0;
+    }
+
+    /* Timer card */
+    #timer-card {
+      width: min(300px, 84vw);
+      background: linear-gradient(145deg, #0e1a30, #121f3a);
+      border-radius: 24px;
+      padding: 24px 20px 20px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+    }
+
+    #timer-icon { font-size: 28px; margin-bottom: 6px; }
+
+    #timer-display {
+      font-size: clamp(44px, 12vw, 58px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -2px;
+      transition: color 0.8s ease;
+    }
+
+    #timer-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Alarm section */
+    #alarm-section {
+      width: min(300px, 84vw);
+      flex-shrink: 0;
+    }
+
+    .section-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 10px;
+    }
+
+    #alarm-buttons {
+      display: flex; gap: 7px; flex-wrap: wrap;
+    }
+
+    .alarm-btn {
+      flex: 1; min-width: 46px;
+      padding: 9px 4px;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.5);
+      font-size: 12px; font-weight: 700;
+      border-radius: 12px; cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .alarm-btn.active {
+      border-color: #fbbf24;
+      background: rgba(251,191,36,0.15);
+      color: #fbbf24;
+    }
+    .alarm-btn:active { transform: scale(0.95); }
+
+    #alarm-info {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #fbbf24;
+      min-height: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Note section */
+    #note-section {
+      width: min(300px, 84vw);
+      flex-shrink: 0;
+    }
+
+    #note-input {
+      width: 100%; height: 80px;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      color: #fff; font-size: 14px;
+      font-family: inherit;
+      padding: 12px 14px;
+      resize: none; outline: none;
+      touch-action: auto;
+      user-select: text;
+      -webkit-user-select: text;
+    }
+    #note-input::placeholder { color: rgba(255,255,255,0.2); }
+    #note-input:focus { border-color: rgba(255,255,255,0.22); }
+
+    #note-save-btn {
+      margin-top: 8px; width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+      font-size: 13px; font-weight: 600;
+      padding: 10px; border-radius: 12px;
+      cursor: pointer; font-family: inherit;
+      transition: all 0.2s;
+    }
+    #note-save-btn:active { background: rgba(255,255,255,0.12); }
+
+    #note-flash {
+      font-size: 12px; color: #4ade80;
+      opacity: 0; transition: opacity 0.3s;
+      text-align: center; min-height: 16px; margin-top: 4px;
+    }
+
+    /* Reset button */
+    #reset-btn {
+      width: min(300px, 84vw);
+      background: rgba(248,113,113,0.08);
+      border: 1.5px solid rgba(248,113,113,0.2);
+      color: #f87171;
+      font-size: 13px; font-weight: 700;
+      padding: 12px; border-radius: 100px;
+      cursor: pointer; font-family: inherit;
+      transition: all 0.25s;
+      flex-shrink: 0;
+      margin-bottom: 4px;
+    }
+    #reset-btn:active { background: rgba(248,113,113,0.18); }
+    #reset-btn.confirm {
+      border-color: #f87171;
+      background: rgba(248,113,113,0.18);
+      color: #fff;
+    }
+
+    /* ── Alarm banner (global, fixed) ── */
+    #alarm-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #000;
+      padding: 14px 48px 14px 16px;
+      font-weight: 800; font-size: 15px;
+      z-index: 999;
+      transform: translateY(-100%);
+      transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+      border-radius: 0 0 16px 16px;
+      box-shadow: 0 8px 30px rgba(251,191,36,0.4);
+    }
+    #alarm-banner.show { transform: translateY(0); }
+
+    #alarm-banner-close {
+      position: absolute; right: 14px; top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.15); border: none;
+      width: 28px; height: 28px; border-radius: 50%;
+      font-size: 16px; cursor: pointer; color: #000;
+      display: flex; align-items: center; justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── KAT PAGE ── -->
+  <div id="kat-page" class="page active">
+    <div id="header">Araç Katım</div>
+
+    <div id="card-wrap">
+      <div class="hint" id="hint-left">
+        <div class="hint-arrow">‹</div>
+        <div>−1</div>
+      </div>
+      <div class="hint" id="hint-right">
+        <div class="hint-arrow">›</div>
+        <div>+1</div>
+      </div>
+      <div id="card">
+        <div id="drag-glow"></div>
+        <div id="car-icon">🚗</div>
+        <div id="floor-label">Araç Katım</div>
+        <div id="floor-number">0</div>
+        <div id="floor-tag">Zemin Kat</div>
+      </div>
+    </div>
+
+    <button id="save-btn">📍 Bu Katı Kaydet</button>
+    <div id="flash">✓ Kaydedildi!</div>
+
+    <div id="bottom">
+      <div id="saved-label">Son kaydedilen kat</div>
+      <div id="saved-value" style="color:rgba(255,255,255,0.35)">—</div>
+    </div>
+  </div>
+
+  <!-- ── AVM PAGE ── -->
+  <div id="avm-page" class="page">
+    <div id="avm-title">AVM Park Yeri</div>
+
+    <div id="avm-saved-card">
+      <div id="avm-saved-text">Kayıtlı Park Yeri</div>
+      <div id="avm-saved-value" style="color:rgba(255,255,255,0.25)">—</div>
+    </div>
+
+    <div id="pickers-wrap">
+      <div id="sel-band"></div>
+      <div class="picker-col">
+        <div class="picker-label">Kat</div>
+        <div class="picker" id="picker-kat"></div>
+      </div>
+      <div class="picker-col">
+        <div class="picker-label">Harf</div>
+        <div class="picker" id="picker-harf"></div>
+      </div>
+      <div class="picker-col">
+        <div class="picker-label">Numara</div>
+        <div class="picker" id="picker-numara"></div>
+      </div>
+    </div>
+
+    <button id="avm-save-btn">📍 Park Yerini Kaydet</button>
+    <div id="avm-flash">✓ Kaydedildi!</div>
+  </div>
+
+  <!-- ── SÜRE PAGE ── -->
+  <div id="sure-page" class="page">
+
+    <div id="sure-title">Park Bilgisi</div>
+
+    <!-- Timer -->
+    <div id="timer-card">
+      <div id="timer-icon">🕐</div>
+      <div id="timer-display" style="color:rgba(255,255,255,0.2)">—</div>
+      <div id="timer-sub">Henüz park kaydedilmedi</div>
+    </div>
+
+    <!-- Alarm -->
+    <div id="alarm-section">
+      <div class="section-label">Hatırlatıcı</div>
+      <div id="alarm-buttons"></div>
+      <div id="alarm-info"></div>
+    </div>
+
+    <!-- Note -->
+    <div id="note-section">
+      <div class="section-label">Not</div>
+      <textarea id="note-input" placeholder="Ör: Kırmızı sütunun yanı, asansörün karşısı..."></textarea>
+      <button id="note-save-btn">💾 Notu Kaydet</button>
+      <div id="note-flash">✓ Not kaydedildi</div>
+    </div>
+
+    <!-- Reset -->
+    <button id="reset-btn">🏁 Park Bitti — Sıfırla</button>
+
+  </div>
+
+  <!-- ── ALARM BANNER ── -->
+  <div id="alarm-banner">
+    🔔 Park alarmı! Arabanıza dönme zamanı.
+    <button id="alarm-banner-close">✕</button>
+  </div>
+
+  <!-- ── TAB BAR ── -->
+  <div id="tab-bar">
+    <button class="tab active" data-page="kat-page">
+      <span class="tab-icon">🚗</span>
+      <span>Katım</span>
+    </button>
+    <button class="tab" data-page="avm-page">
+      <span class="tab-icon">🏬</span>
+      <span>AVM</span>
+    </button>
+    <button class="tab" data-page="sure-page">
+      <span class="tab-icon">⏱</span>
+      <span>Süre</span>
+    </button>
+  </div>
+
+<script>
+  // ── Tab navigation ─────────────────────────────────────
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const page = document.getElementById(tab.dataset.page);
+      page.classList.add('active');
+      if (tab.dataset.page === 'sure-page') updateTimerDisplay();
+    });
+  });
+
+  // ══════════════════════════════════════════════════════
+  //  KAT PAGE
+  // ══════════════════════════════════════════════════════
+  function theme(floor) {
+    if (floor === 0) return { num: '#4ade80', tag: 'Zemin Kat', bg: 'linear-gradient(145deg,#14291e,#1a3528)', glow: 'rgba(74,222,128,0.25)' };
+    if (floor < 0)  return { num: '#60a5fa', tag: `B${Math.abs(floor)}`, bg: 'linear-gradient(145deg,#0e1830,#132040)', glow: 'rgba(96,165,250,0.25)' };
+    return { num: '#fb923c', tag: `${floor}. Kat`, bg: 'linear-gradient(145deg,#261508,#301c10)', glow: 'rgba(251,146,60,0.25)' };
+  }
+
+  const card     = document.getElementById('card');
+  const dragGlow = document.getElementById('drag-glow');
+  const numEl    = document.getElementById('floor-number');
+  const tagEl    = document.getElementById('floor-tag');
+  const savedVal = document.getElementById('saved-value');
+  const saveBtn  = document.getElementById('save-btn');
+  const flashEl  = document.getElementById('flash');
+
+  let current = parseInt(localStorage.getItem('currentFloor') || '0');
+  let saved   = localStorage.getItem('savedFloor');
+
+  function render(floor, animate) {
+    const t = theme(floor);
+    numEl.textContent = floor;
+    numEl.style.color = t.num;
+    tagEl.textContent = t.tag;
+    card.style.transition = animate ? 'background 0.5s ease' : 'none';
+    card.style.background = t.bg;
+    if (saved !== null) {
+      const s = parseInt(saved), st = theme(s);
+      savedVal.textContent = `${s}  •  ${st.tag}`;
+      savedVal.style.color = st.num;
+    } else {
+      savedVal.textContent = '—';
+      savedVal.style.color = 'rgba(255,255,255,0.35)';
+    }
+  }
+
+  function springSnap() {
+    card.style.transition = 'transform 0.55s cubic-bezier(0.34,1.56,0.64,1)';
+    card.style.transform  = 'translateX(0) rotate(0deg)';
+    dragGlow.style.opacity = '0';
+    setTimeout(() => { card.style.transition = ''; }, 550);
+  }
+  function bounceBack() {
+    card.style.transition = 'transform 0.45s cubic-bezier(0.34,1.56,0.64,1)';
+    card.style.transform  = 'translateX(0) rotate(0deg)';
+    dragGlow.style.opacity = '0';
+    setTimeout(() => { card.style.transition = ''; }, 450);
+  }
+  function changeFloor(delta) {
+    current += delta;
+    localStorage.setItem('currentFloor', current);
+    springSnap();
+    setTimeout(() => render(current, true), 80);
+  }
+  function showFlash(color) {
+    flashEl.style.color   = color;
+    flashEl.style.opacity = '1';
+    saveBtn.style.opacity = '0';
+    setTimeout(() => { flashEl.style.opacity = '0'; saveBtn.style.opacity = '1'; }, 1200);
+  }
+
+  saveBtn.addEventListener('click', () => {
+    saved = current;
+    localStorage.setItem('savedFloor', saved);
+    localStorage.setItem('parkStartTime', Date.now().toString());
+    render(current, false);
+    showFlash(theme(current).num);
+    updateTimerDisplay();
+  });
+
+  let startX = 0, dx = 0, vx = 0, prevX = 0, prevT = 0, dragging = false;
+  const THRESHOLD = 55, VEL_THRESH = 0.35, DAMPING = 0.42;
+
+  function onStart(clientX) {
+    startX = clientX; dx = 0; vx = 0;
+    prevX = clientX; prevT = Date.now();
+    dragging = true; card.style.transition = '';
+  }
+  function onMove(clientX) {
+    if (!dragging) return;
+    const now = Date.now();
+    dx = clientX - startX;
+    vx = (clientX - prevX) / Math.max(now - prevT, 1);
+    prevX = clientX; prevT = now;
+    const translated = dx * DAMPING;
+    const rot = (dx / window.innerWidth) * 10;
+    card.style.transform = `translateX(${translated}px) rotate(${rot}deg)`;
+    const t = theme(current);
+    if (Math.abs(dx) > 15) {
+      dragGlow.style.background = dx > 0
+        ? `linear-gradient(to right, transparent, ${t.glow})`
+        : `linear-gradient(to left, transparent, ${t.glow})`;
+      dragGlow.style.opacity = String(Math.min(Math.abs(dx) / 120, 1));
+    } else {
+      dragGlow.style.opacity = '0';
+    }
+  }
+  function onEnd() {
+    if (!dragging) return;
+    dragging = false;
+    if      (dx >  THRESHOLD || vx >  VEL_THRESH) changeFloor(+1);
+    else if (dx < -THRESHOLD || vx < -VEL_THRESH) changeFloor(-1);
+    else bounceBack();
+    dx = 0;
+  }
+
+  card.addEventListener('touchstart', e => { if (e.touches.length === 1) onStart(e.touches[0].clientX); }, { passive: true });
+  card.addEventListener('touchmove',  e => onMove(e.touches[0].clientX), { passive: true });
+  card.addEventListener('touchend',   onEnd);
+  card.addEventListener('touchcancel',onEnd);
+  card.addEventListener('mousedown', e => { onStart(e.clientX); e.preventDefault(); });
+  document.addEventListener('mousemove', e => { if (dragging) onMove(e.clientX); });
+  document.addEventListener('mouseup', onEnd);
+
+  render(current, false);
+
+  // ══════════════════════════════════════════════════════
+  //  AVM PAGE
+  // ══════════════════════════════════════════════════════
+  const ITEM_H   = 52;
+  const FLOORS   = ['B5','B4','B3','B2','B1','Z','1','2','3','4','5'];
+  const HARFLER  = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T','U','V','Y','Z'];
+  const NUMARALAR = Array.from({ length: 99 }, (_, i) => String(i + 1));
+
+  function buildPicker(id, items) {
+    const el = document.getElementById(id);
+    const spacer = () => { const d = document.createElement('div'); d.style.height = ITEM_H + 'px'; return d; };
+    el.appendChild(spacer());
+    items.forEach(val => {
+      const d = document.createElement('div');
+      d.className = 'picker-item';
+      d.textContent = val;
+      el.appendChild(d);
+    });
+    el.appendChild(spacer());
+  }
+
+  buildPicker('picker-kat',    FLOORS);
+  buildPicker('picker-harf',   HARFLER);
+  buildPicker('picker-numara', NUMARALAR);
+
+  const pKat    = document.getElementById('picker-kat');
+  const pHarf   = document.getElementById('picker-harf');
+  const pNumara = document.getElementById('picker-numara');
+
+  function getIdx(picker) { return Math.round(picker.scrollTop / ITEM_H); }
+
+  function highlight(picker) {
+    const items = picker.querySelectorAll('.picker-item');
+    const sel   = getIdx(picker);
+    items.forEach((item, i) => {
+      const d = Math.abs(i - sel);
+      if (d === 0)      { item.style.color = '#fff';                   item.style.fontSize = '22px'; }
+      else if (d === 1) { item.style.color = 'rgba(255,255,255,0.35)'; item.style.fontSize = '17px'; }
+      else              { item.style.color = 'rgba(255,255,255,0.1)';  item.style.fontSize = '13px'; }
+    });
+  }
+
+  [pKat, pHarf, pNumara].forEach(p => {
+    p.addEventListener('scroll', () => highlight(p), { passive: true });
+  });
+
+  function setPickerTo(picker, items, value) {
+    const idx = items.indexOf(value);
+    picker.scrollTop = (idx >= 0 ? idx : 0) * ITEM_H;
+    highlight(picker);
+  }
+
+  const avmSpot = JSON.parse(localStorage.getItem('avmSpot') || 'null');
+  setTimeout(() => {
+    setPickerTo(pKat,    FLOORS,    avmSpot ? avmSpot.kat    : 'Z');
+    setPickerTo(pHarf,   HARFLER,   avmSpot ? avmSpot.harf   : 'A');
+    setPickerTo(pNumara, NUMARALAR, avmSpot ? avmSpot.numara : '1');
+  }, 60);
+
+  function updateAvmDisplay() {
+    const spot = JSON.parse(localStorage.getItem('avmSpot') || 'null');
+    const el   = document.getElementById('avm-saved-value');
+    if (spot) {
+      el.textContent  = `${spot.kat} · ${spot.harf} · ${spot.numara}`;
+      el.style.color  = '#a78bfa';
+    } else {
+      el.textContent  = '—';
+      el.style.color  = 'rgba(255,255,255,0.25)';
+    }
+  }
+
+  document.getElementById('avm-save-btn').addEventListener('click', () => {
+    const spot = {
+      kat:    FLOORS[getIdx(pKat)]       || 'Z',
+      harf:   HARFLER[getIdx(pHarf)]     || 'A',
+      numara: NUMARALAR[getIdx(pNumara)] || '1',
+    };
+    localStorage.setItem('avmSpot', JSON.stringify(spot));
+    localStorage.setItem('parkStartTime', Date.now().toString());
+    updateAvmDisplay();
+    updateTimerDisplay();
+
+    const btn   = document.getElementById('avm-save-btn');
+    const flash = document.getElementById('avm-flash');
+    flash.style.opacity = '1';
+    btn.style.opacity   = '0';
+    setTimeout(() => { flash.style.opacity = '0'; btn.style.opacity = '1'; }, 1200);
+  });
+
+  updateAvmDisplay();
+
+  // ══════════════════════════════════════════════════════
+  //  SÜRE PAGE — Timer
+  // ══════════════════════════════════════════════════════
+  const timerDisplay = document.getElementById('timer-display');
+  const timerSub     = document.getElementById('timer-sub');
+
+  function getTimerColor(totalMin) {
+    if (totalMin < 60)  return '#4ade80';
+    if (totalMin < 120) return '#fbbf24';
+    return '#f87171';
+  }
+
+  function updateTimerDisplay() {
+    const start = parseInt(localStorage.getItem('parkStartTime') || '0');
+    if (!start) {
+      timerDisplay.textContent = '—';
+      timerDisplay.style.color = 'rgba(255,255,255,0.2)';
+      timerSub.textContent = 'Henüz park kaydedilmedi';
+      return;
+    }
+    const elapsed   = Date.now() - start;
+    const totalSec  = Math.floor(elapsed / 1000);
+    const totalMin  = Math.floor(totalSec / 60);
+    const hours     = Math.floor(totalMin / 60);
+    const mins      = totalMin % 60;
+
+    timerDisplay.style.color = getTimerColor(totalMin);
+    timerDisplay.textContent = hours > 0
+      ? `${hours} sa ${String(mins).padStart(2,'0')} dk`
+      : `${mins} dk`;
+
+    const startDate = new Date(start);
+    const timeStr   = startDate.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+    timerSub.textContent = `${timeStr}'de park ettiniz`;
+  }
+
+  setInterval(() => {
+    updateTimerDisplay();
+    checkAlarm();
+  }, 30000);
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) { updateTimerDisplay(); checkAlarm(); }
+  });
+
+  // ══════════════════════════════════════════════════════
+  //  SÜRE PAGE — Alarm
+  // ══════════════════════════════════════════════════════
+  const ALARM_OPTIONS = [
+    { label: '30 dk', minutes: 30 },
+    { label: '1 sa',  minutes: 60 },
+    { label: '1.5 sa', minutes: 90 },
+    { label: '2 sa',  minutes: 120 },
+    { label: '3 sa',  minutes: 180 },
+  ];
+
+  let alarmTimeout = null;
+  let alarmFired   = localStorage.getItem('alarmFired') === 'true';
+
+  function buildAlarmButtons() {
+    const container = document.getElementById('alarm-buttons');
+    ALARM_OPTIONS.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className     = 'alarm-btn';
+      btn.textContent   = opt.label;
+      btn.dataset.minutes = opt.minutes;
+      btn.addEventListener('click', () => handleAlarmClick(opt.minutes));
+      container.appendChild(btn);
+    });
+  }
+
+  async function handleAlarmClick(minutes) {
+    const currentMins = parseInt(localStorage.getItem('alarmMinutes') || '0');
+    const hasAlarm    = !!localStorage.getItem('alarmTime') && !alarmFired;
+
+    if (hasAlarm && currentMins === minutes) {
+      cancelAlarm(); return;
+    }
+
+    if ('Notification' in window && Notification.permission === 'default') {
+      await Notification.requestPermission();
+    }
+    setAlarm(minutes);
+  }
+
+  function setAlarm(minutes) {
+    const alarmTime = Date.now() + minutes * 60 * 1000;
+    localStorage.setItem('alarmTime', alarmTime.toString());
+    localStorage.setItem('alarmMinutes', minutes.toString());
+    localStorage.setItem('alarmFired', 'false');
+    alarmFired = false;
+
+    if (alarmTimeout) clearTimeout(alarmTimeout);
+    alarmTimeout = setTimeout(fireAlarm, alarmTime - Date.now());
+
+    updateAlarmDisplay();
+    syncAlarmButtons();
+  }
+
+  function cancelAlarm() {
+    localStorage.removeItem('alarmTime');
+    localStorage.removeItem('alarmMinutes');
+    if (alarmTimeout) clearTimeout(alarmTimeout);
+    alarmTimeout = null;
+    updateAlarmDisplay();
+    syncAlarmButtons();
+  }
+
+  function fireAlarm() {
+    if (alarmFired) return;
+    alarmFired = true;
+    localStorage.setItem('alarmFired', 'true');
+
+    if (Notification.permission === 'granted') {
+      try {
+        new Notification('🚗 Park Alarmı!', {
+          body: 'Park süreniz doldu! Arabanıza dönme zamanı.',
+          requireInteraction: true, tag: 'park-alarm'
+        });
+      } catch(e) {}
+    }
+
+    document.getElementById('alarm-banner').classList.add('show');
+    syncAlarmButtons();
+    updateAlarmDisplay();
+  }
+
+  function checkAlarm() {
+    const alarmTime = parseInt(localStorage.getItem('alarmTime') || '0');
+    const fired     = localStorage.getItem('alarmFired') === 'true';
+    if (!alarmTime) return;
+    if (!fired && Date.now() >= alarmTime) {
+      fireAlarm();
+    } else if (!fired && !alarmTimeout) {
+      const delay = alarmTime - Date.now();
+      if (delay > 0) alarmTimeout = setTimeout(fireAlarm, delay);
+    }
+  }
+
+  function updateAlarmDisplay() {
+    const alarmTime = parseInt(localStorage.getItem('alarmTime') || '0');
+    const fired     = localStorage.getItem('alarmFired') === 'true';
+    const info      = document.getElementById('alarm-info');
+
+    if (!alarmTime || fired) { info.textContent = ''; return; }
+
+    const alarmDate = new Date(alarmTime);
+    const timeStr   = alarmDate.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+    const mins      = parseInt(localStorage.getItem('alarmMinutes') || '0');
+    info.textContent = `⏰ ${timeStr}'de alarm kurulu · iptal için tekrar bas`;
+  }
+
+  function syncAlarmButtons() {
+    const activeMins = alarmFired ? null : parseInt(localStorage.getItem('alarmMinutes') || '0') || null;
+    document.querySelectorAll('.alarm-btn').forEach(btn => {
+      btn.classList.toggle('active', parseInt(btn.dataset.minutes) === activeMins);
+    });
+  }
+
+  document.getElementById('alarm-banner-close').addEventListener('click', () => {
+    document.getElementById('alarm-banner').classList.remove('show');
+    cancelAlarm();
+  });
+
+  // ══════════════════════════════════════════════════════
+  //  SÜRE PAGE — Note
+  // ══════════════════════════════════════════════════════
+  const noteInput   = document.getElementById('note-input');
+  const noteFlash   = document.getElementById('note-flash');
+
+  noteInput.value = localStorage.getItem('parkNote') || '';
+
+  document.getElementById('note-save-btn').addEventListener('click', () => {
+    localStorage.setItem('parkNote', noteInput.value);
+    noteFlash.style.opacity = '1';
+    setTimeout(() => { noteFlash.style.opacity = '0'; }, 1500);
+  });
+
+  // ══════════════════════════════════════════════════════
+  //  SÜRE PAGE — Reset (2-tap confirmation)
+  // ══════════════════════════════════════════════════════
+  const resetBtn = document.getElementById('reset-btn');
+  let resetPending = false, resetTimer = null;
+
+  resetBtn.addEventListener('click', () => {
+    if (!resetPending) {
+      resetPending = true;
+      resetBtn.textContent = '⚠️ Emin misin? Tekrar bas';
+      resetBtn.classList.add('confirm');
+      resetTimer = setTimeout(() => {
+        resetPending = false;
+        resetBtn.textContent = '🏁 Park Bitti — Sıfırla';
+        resetBtn.classList.remove('confirm');
+      }, 3000);
+    } else {
+      clearTimeout(resetTimer);
+      resetPending = false;
+      resetBtn.textContent = '🏁 Park Bitti — Sıfırla';
+      resetBtn.classList.remove('confirm');
+      doReset();
+    }
+  });
+
+  function doReset() {
+    ['parkStartTime','alarmTime','alarmMinutes','alarmFired','parkNote'].forEach(k => localStorage.removeItem(k));
+    alarmFired = false;
+    if (alarmTimeout) clearTimeout(alarmTimeout);
+    alarmTimeout = null;
+    noteInput.value = '';
+    document.getElementById('alarm-banner').classList.remove('show');
+    updateTimerDisplay();
+    updateAlarmDisplay();
+    syncAlarmButtons();
+  }
+
+  // ── Init ─────────────────────────────────────────────
+  buildAlarmButtons();
+  checkAlarm();
+  updateAlarmDisplay();
+  syncAlarmButtons();
+  updateTimerDisplay();
+</script>
+</body>
+</html>
