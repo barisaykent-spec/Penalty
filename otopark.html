@@ -15,28 +15,68 @@
       height: 100svh;
       overflow: hidden;
       user-select: none;
-      touch-action: none;
       display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Pages ── */
+    .page {
+      display: none;
+      position: relative;
+      flex: 1;
+      overflow: hidden;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
+    .page.active { display: flex; }
 
-    /* ---------- üst başlık ---------- */
+    /* ── Tab Bar ── */
+    #tab-bar {
+      height: 60px;
+      flex-shrink: 0;
+      display: flex;
+      background: rgba(10,10,20,0.97);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .tab {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      border: none;
+      background: none;
+      color: rgba(255,255,255,0.3);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .tab.active { color: #fff; }
+    .tab-icon { font-size: 20px; line-height: 1; }
+
+    /* ══════════════════════════════════════════ */
+    /*  KAT PAGE                                 */
+    /* ══════════════════════════════════════════ */
+    #kat-page { touch-action: none; }
+
     #header {
       position: absolute;
-      top: 32px;
+      top: 28px;
       font-size: 13px;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: rgba(255,255,255,0.35);
     }
 
-    /* ---------- kart ---------- */
     #card-wrap {
       position: relative;
-      width: min(320px, 88vw);
-      height: min(420px, 72vw + 180px);
+      width: min(300px, 84vw);
+      height: min(390px, 66vw + 170px);
     }
 
     #card {
@@ -52,12 +92,9 @@
       box-shadow: 0 40px 100px rgba(0,0,0,0.6);
       position: relative;
       overflow: hidden;
-      /* renk JS tarafından set edilir */
+      touch-action: none;
     }
-
     #card:active { cursor: grabbing; }
-
-    /* Kart üzerindeki ışık efekti */
     #card::before {
       content: '';
       position: absolute;
@@ -67,7 +104,6 @@
       pointer-events: none;
     }
 
-    /* sürükleme renk overlay */
     #drag-glow {
       position: absolute;
       inset: 0;
@@ -106,7 +142,6 @@
       backdrop-filter: blur(4px);
     }
 
-    /* ---------- yön ipuçları ---------- */
     .hint {
       position: absolute;
       top: 50%;
@@ -118,46 +153,23 @@
       color: rgba(255,255,255,0.25);
       font-size: 12px;
       letter-spacing: 1px;
-      transition: opacity 0.3s;
     }
-    #hint-left  { left: -52px; }
-    #hint-right { right: -52px; }
-
+    #hint-left  { left: -50px; }
+    #hint-right { right: -50px; }
     .hint-arrow {
       font-size: 26px;
       line-height: 1;
       animation: breathe 2.4s ease-in-out infinite;
     }
     #hint-right .hint-arrow { animation-delay: 1.2s; }
-
     @keyframes breathe {
       0%,100% { opacity: 0.2; transform: scale(0.9); }
       50%      { opacity: 0.6; transform: scale(1.05); }
     }
 
-    /* ---------- alt bilgi ---------- */
-    #bottom {
-      position: absolute;
-      bottom: 40px;
-      text-align: center;
-    }
-
-    #saved-label {
-      font-size: 13px;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.5px;
-    }
-
-    #saved-value {
-      font-size: 18px;
-      font-weight: 700;
-      margin-top: 4px;
-    }
-
-    /* ---------- kaydet butonu ---------- */
     #save-btn {
       position: absolute;
-      bottom: 110px;
+      bottom: 100px;
       background: rgba(255,255,255,0.1);
       border: 1.5px solid rgba(255,255,255,0.15);
       color: #fff;
@@ -169,106 +181,285 @@
       cursor: pointer;
       backdrop-filter: blur(6px);
       transition: background 0.2s, transform 0.1s;
-      -webkit-tap-highlight-color: transparent;
     }
     #save-btn:active { background: rgba(255,255,255,0.2); transform: scale(0.96); }
 
-    /* "Kaydedildi!" flash */
     #flash {
       position: absolute;
-      bottom: 114px;
+      bottom: 104px;
       font-size: 14px;
       font-weight: 700;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s;
     }
+
+    #bottom {
+      position: absolute;
+      bottom: 36px;
+      text-align: center;
+    }
+    #saved-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.5px;
+    }
+    #saved-value {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* ══════════════════════════════════════════ */
+    /*  AVM PAGE                                 */
+    /* ══════════════════════════════════════════ */
+    #avm-page {
+      gap: 20px;
+      padding: 16px 16px 8px;
+    }
+
+    #avm-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    #avm-saved-card {
+      width: min(300px, 84vw);
+      background: linear-gradient(145deg, #180e2e, #201540);
+      border-radius: 20px;
+      padding: 16px 24px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    #avm-saved-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 6px;
+    }
+    #avm-saved-value {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 4px;
+    }
+
+    /* Pickers container */
+    #pickers-wrap {
+      display: flex;
+      gap: 0;
+      width: min(300px, 84vw);
+      position: relative;
+      background: rgba(255,255,255,0.04);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* Selection highlight band */
+    #sel-band {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 52px;
+      background: rgba(167,139,250,0.1);
+      border-top: 1px solid rgba(167,139,250,0.25);
+      border-bottom: 1px solid rgba(167,139,250,0.25);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .picker-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .picker-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      padding: 10px 0 4px;
+    }
+
+    .picker {
+      width: 100%;
+      height: 156px;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      touch-action: pan-y;
+    }
+    .picker::-webkit-scrollbar { display: none; }
+
+    .picker-item {
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      scroll-snap-align: center;
+      font-weight: 800;
+      transition: color 0.12s, font-size 0.12s;
+    }
+
+    /* Fade masks top/bottom */
+    .picker-col::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 60px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    #avm-save-btn {
+      background: rgba(167,139,250,0.12);
+      border: 1.5px solid rgba(167,139,250,0.3);
+      color: #a78bfa;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 12px 32px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    #avm-save-btn:active { background: rgba(167,139,250,0.25); transform: scale(0.96); }
+
+    #avm-flash {
+      font-size: 14px;
+      font-weight: 700;
+      color: #a78bfa;
+      opacity: 0;
+      transition: opacity 0.3s;
+      min-height: 16px;
+    }
   </style>
 </head>
 <body>
 
-  <div id="header">Araç Katım</div>
+  <!-- ── KAT PAGE ── -->
+  <div id="kat-page" class="page active">
+    <div id="header">Araç Katım</div>
 
-  <div id="card-wrap">
-    <!-- yön ipuçları -->
-    <div class="hint" id="hint-left">
-      <div class="hint-arrow">‹</div>
-      <div>−1</div>
-    </div>
-    <div class="hint" id="hint-right">
-      <div class="hint-arrow">›</div>
-      <div>+1</div>
+    <div id="card-wrap">
+      <div class="hint" id="hint-left">
+        <div class="hint-arrow">‹</div>
+        <div>−1</div>
+      </div>
+      <div class="hint" id="hint-right">
+        <div class="hint-arrow">›</div>
+        <div>+1</div>
+      </div>
+      <div id="card">
+        <div id="drag-glow"></div>
+        <div id="car-icon">🚗</div>
+        <div id="floor-label">Araç Katım</div>
+        <div id="floor-number">0</div>
+        <div id="floor-tag">Zemin Kat</div>
+      </div>
     </div>
 
-    <!-- ana kart -->
-    <div id="card">
-      <div id="drag-glow"></div>
-      <div id="car-icon">🚗</div>
-      <div id="floor-label">Araç Katım</div>
-      <div id="floor-number">0</div>
-      <div id="floor-tag">Zemin Kat</div>
+    <button id="save-btn">📍 Bu Katı Kaydet</button>
+    <div id="flash">✓ Kaydedildi!</div>
+
+    <div id="bottom">
+      <div id="saved-label">Son kaydedilen kat</div>
+      <div id="saved-value" style="color:rgba(255,255,255,0.35)">—</div>
     </div>
   </div>
 
-  <!-- kaydet butonu -->
-  <button id="save-btn">📍 Bu Katı Kaydet</button>
-  <div id="flash">✓ Kaydedildi!</div>
+  <!-- ── AVM PAGE ── -->
+  <div id="avm-page" class="page">
+    <div id="avm-title">AVM Park Yeri</div>
 
-  <!-- kayıtlı bilgi -->
-  <div id="bottom">
-    <div id="saved-label">Son kaydedilen kat</div>
-    <div id="saved-value" style="color:rgba(255,255,255,0.35)">—</div>
+    <div id="avm-saved-card">
+      <div id="avm-saved-text">Kayıtlı Park Yeri</div>
+      <div id="avm-saved-value" style="color:rgba(255,255,255,0.25)">—</div>
+    </div>
+
+    <div id="pickers-wrap">
+      <div id="sel-band"></div>
+
+      <div class="picker-col">
+        <div class="picker-label">Kat</div>
+        <div class="picker" id="picker-kat"></div>
+      </div>
+
+      <div class="picker-col">
+        <div class="picker-label">Harf</div>
+        <div class="picker" id="picker-harf"></div>
+      </div>
+
+      <div class="picker-col">
+        <div class="picker-label">Numara</div>
+        <div class="picker" id="picker-numara"></div>
+      </div>
+    </div>
+
+    <button id="avm-save-btn">📍 Park Yerini Kaydet</button>
+    <div id="avm-flash">✓ Kaydedildi!</div>
+  </div>
+
+  <!-- ── TAB BAR ── -->
+  <div id="tab-bar">
+    <button class="tab active" data-page="kat-page">
+      <span class="tab-icon">🚗</span>
+      <span>Katım</span>
+    </button>
+    <button class="tab" data-page="avm-page">
+      <span class="tab-icon">🏬</span>
+      <span>AVM</span>
+    </button>
   </div>
 
 <script>
-  // ── Renk teması ──────────────────────────────────────────────────
+  // ── Tab navigation ─────────────────────────────────────────
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.page).classList.add('active');
+    });
+  });
+
+  // ══════════════════════════════════════════════════════════
+  //  KAT PAGE
+  // ══════════════════════════════════════════════════════════
   function theme(floor) {
-    if (floor === 0) return {
-      num:  '#4ade80',
-      tag:  'Zemin Kat',
-      bg:   'linear-gradient(145deg,#14291e,#1a3528)',
-      glow: 'rgba(74,222,128,0.25)'
-    };
-    if (floor < 0) return {
-      num:  '#60a5fa',
-      tag:  `B${Math.abs(floor)}`,
-      bg:   'linear-gradient(145deg,#0e1830,#132040)',
-      glow: 'rgba(96,165,250,0.25)'
-    };
-    return {
-      num:  '#fb923c',
-      tag:  `${floor}. Kat`,
-      bg:   'linear-gradient(145deg,#261508,#301c10)',
-      glow: 'rgba(251,146,60,0.25)'
-    };
+    if (floor === 0) return { num: '#4ade80', tag: 'Zemin Kat', bg: 'linear-gradient(145deg,#14291e,#1a3528)', glow: 'rgba(74,222,128,0.25)' };
+    if (floor < 0)  return { num: '#60a5fa', tag: `B${Math.abs(floor)}`, bg: 'linear-gradient(145deg,#0e1830,#132040)', glow: 'rgba(96,165,250,0.25)' };
+    return { num: '#fb923c', tag: `${floor}. Kat`, bg: 'linear-gradient(145deg,#261508,#301c10)', glow: 'rgba(251,146,60,0.25)' };
   }
 
-  // ── DOM ──────────────────────────────────────────────────────────
-  const card        = document.getElementById('card');
-  const dragGlow    = document.getElementById('drag-glow');
-  const numEl       = document.getElementById('floor-number');
-  const tagEl       = document.getElementById('floor-tag');
-  const savedVal    = document.getElementById('saved-value');
-  const saveBtn     = document.getElementById('save-btn');
-  const flashEl     = document.getElementById('flash');
+  const card     = document.getElementById('card');
+  const dragGlow = document.getElementById('drag-glow');
+  const numEl    = document.getElementById('floor-number');
+  const tagEl    = document.getElementById('floor-tag');
+  const savedVal = document.getElementById('saved-value');
+  const saveBtn  = document.getElementById('save-btn');
+  const flashEl  = document.getElementById('flash');
 
-  // ── Durum ────────────────────────────────────────────────────────
   let current = parseInt(localStorage.getItem('currentFloor') || '0');
   let saved   = localStorage.getItem('savedFloor');
 
-  // ── Görünüm güncelle ─────────────────────────────────────────────
   function render(floor, animate) {
     const t = theme(floor);
     numEl.textContent = floor;
     numEl.style.color = t.num;
     tagEl.textContent = t.tag;
-    if (animate) {
-      card.style.transition = 'background 0.5s ease';
-    } else {
-      card.style.transition = 'none';
-    }
+    card.style.transition = animate ? 'background 0.5s ease' : 'none';
     card.style.background = t.bg;
-
     if (saved !== null) {
       const s = parseInt(saved);
       const st = theme(s);
@@ -280,37 +471,29 @@
     }
   }
 
-  // ── Kart animasyonu ──────────────────────────────────────────────
   function springSnap() {
     card.style.transition = 'transform 0.55s cubic-bezier(0.34,1.56,0.64,1)';
     card.style.transform  = 'translateX(0) rotate(0deg)';
     dragGlow.style.opacity = '0';
     setTimeout(() => { card.style.transition = ''; }, 550);
   }
-
   function bounceBack() {
     card.style.transition = 'transform 0.45s cubic-bezier(0.34,1.56,0.64,1)';
     card.style.transform  = 'translateX(0) rotate(0deg)';
     dragGlow.style.opacity = '0';
     setTimeout(() => { card.style.transition = ''; }, 450);
   }
-
   function changeFloor(delta) {
     current += delta;
     localStorage.setItem('currentFloor', current);
     springSnap();
     setTimeout(() => render(current, true), 80);
   }
-
-  // ── Kaydedildi flash ─────────────────────────────────────────────
   function showFlash(color) {
-    flashEl.style.color   = color;
+    flashEl.style.color = color;
     flashEl.style.opacity = '1';
     saveBtn.style.opacity = '0';
-    setTimeout(() => {
-      flashEl.style.opacity = '0';
-      saveBtn.style.opacity = '1';
-    }, 1200);
+    setTimeout(() => { flashEl.style.opacity = '0'; saveBtn.style.opacity = '1'; }, 1200);
   }
 
   saveBtn.addEventListener('click', () => {
@@ -320,42 +503,34 @@
     showFlash(theme(current).num);
   });
 
-  // ── Dokunma / Fare sürükleme ─────────────────────────────────────
   let startX = 0, dx = 0, vx = 0, prevX = 0, prevT = 0, dragging = false;
-  const THRESHOLD  = 55;  // minimum sürükleme mesafesi (px)
-  const VEL_THRESH = 0.35; // hız eşiği (px/ms)
-  const DAMPING    = 0.42; // ağırlık direnci (1 = serbest)
+  const THRESHOLD = 55, VEL_THRESH = 0.35, DAMPING = 0.42;
 
   function onStart(clientX) {
     startX = clientX; dx = 0; vx = 0;
-    prevX  = clientX; prevT = Date.now();
+    prevX = clientX; prevT = Date.now();
     dragging = true;
     card.style.transition = '';
   }
-
   function onMove(clientX) {
     if (!dragging) return;
     const now = Date.now();
-    dx  = clientX - startX;
-    vx  = (clientX - prevX) / Math.max(now - prevT, 1);
+    dx = clientX - startX;
+    vx = (clientX - prevX) / Math.max(now - prevT, 1);
     prevX = clientX; prevT = now;
-
     const translated = dx * DAMPING;
     const rot = (dx / window.innerWidth) * 10;
     card.style.transform = `translateX(${translated}px) rotate(${rot}deg)`;
-
-    // renk glow
     const t = theme(current);
     if (Math.abs(dx) > 15) {
       dragGlow.style.background = dx > 0
         ? `linear-gradient(to right, transparent, ${t.glow})`
-        : `linear-gradient(to left,  transparent, ${t.glow})`;
+        : `linear-gradient(to left, transparent, ${t.glow})`;
       dragGlow.style.opacity = String(Math.min(Math.abs(dx) / 120, 1));
     } else {
       dragGlow.style.opacity = '0';
     }
   }
-
   function onEnd() {
     if (!dragging) return;
     dragging = false;
@@ -365,19 +540,107 @@
     dx = 0;
   }
 
-  // Touch
-  card.addEventListener('touchstart', e => { if (e.touches.length === 1) onStart(e.touches[0].clientX); }, {passive:true});
-  card.addEventListener('touchmove',  e => onMove(e.touches[0].clientX), {passive:true});
+  card.addEventListener('touchstart', e => { if (e.touches.length === 1) onStart(e.touches[0].clientX); }, { passive: true });
+  card.addEventListener('touchmove',  e => onMove(e.touches[0].clientX), { passive: true });
   card.addEventListener('touchend',   onEnd);
   card.addEventListener('touchcancel',onEnd);
-
-  // Mouse (masaüstü test)
   card.addEventListener('mousedown', e => { onStart(e.clientX); e.preventDefault(); });
   document.addEventListener('mousemove', e => { if (dragging) onMove(e.clientX); });
-  document.addEventListener('mouseup',   onEnd);
+  document.addEventListener('mouseup', onEnd);
 
-  // ── İlk yükleme ──────────────────────────────────────────────────
   render(current, false);
+
+  // ══════════════════════════════════════════════════════════
+  //  AVM PAGE — DRUM PICKERS
+  // ══════════════════════════════════════════════════════════
+  const ITEM_H  = 52;
+  const FLOORS  = ['B5','B4','B3','B2','B1','Z','1','2','3','4','5'];
+  const HARFLER = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T','U','V','Y','Z'];
+  const NUMARALAR = Array.from({ length: 99 }, (_, i) => String(i + 1));
+
+  function buildPicker(id, items) {
+    const el = document.getElementById(id);
+    const spacer = () => { const d = document.createElement('div'); d.style.height = ITEM_H + 'px'; return d; };
+    el.appendChild(spacer());
+    items.forEach(val => {
+      const d = document.createElement('div');
+      d.className = 'picker-item';
+      d.textContent = val;
+      el.appendChild(d);
+    });
+    el.appendChild(spacer());
+  }
+
+  buildPicker('picker-kat',    FLOORS);
+  buildPicker('picker-harf',   HARFLER);
+  buildPicker('picker-numara', NUMARALAR);
+
+  const pKat    = document.getElementById('picker-kat');
+  const pHarf   = document.getElementById('picker-harf');
+  const pNumara = document.getElementById('picker-numara');
+
+  function getIdx(picker) {
+    return Math.round(picker.scrollTop / ITEM_H);
+  }
+
+  function highlight(picker) {
+    const items = picker.querySelectorAll('.picker-item');
+    const sel = getIdx(picker);
+    items.forEach((item, i) => {
+      const dist = Math.abs(i - sel);
+      if (dist === 0)      { item.style.color = '#fff';                    item.style.fontSize = '22px'; }
+      else if (dist === 1) { item.style.color = 'rgba(255,255,255,0.35)';  item.style.fontSize = '17px'; }
+      else                 { item.style.color = 'rgba(255,255,255,0.1)';   item.style.fontSize = '13px'; }
+    });
+  }
+
+  [pKat, pHarf, pNumara].forEach(p => {
+    p.addEventListener('scroll', () => highlight(p), { passive: true });
+  });
+
+  function setPickerTo(picker, items, value) {
+    const idx = items.indexOf(value);
+    picker.scrollTop = (idx >= 0 ? idx : 0) * ITEM_H;
+    highlight(picker);
+  }
+
+  // Init positions from localStorage
+  const avmSpot = JSON.parse(localStorage.getItem('avmSpot') || 'null');
+  setTimeout(() => {
+    setPickerTo(pKat,    FLOORS,     avmSpot ? avmSpot.kat    : 'Z');
+    setPickerTo(pHarf,   HARFLER,    avmSpot ? avmSpot.harf   : 'A');
+    setPickerTo(pNumara, NUMARALAR,  avmSpot ? avmSpot.numara : '1');
+  }, 60);
+
+  function updateAvmDisplay() {
+    const spot = JSON.parse(localStorage.getItem('avmSpot') || 'null');
+    const el = document.getElementById('avm-saved-value');
+    if (spot) {
+      el.textContent = `${spot.kat} · ${spot.harf} · ${spot.numara}`;
+      el.style.color = '#a78bfa';
+    } else {
+      el.textContent = '—';
+      el.style.color = 'rgba(255,255,255,0.25)';
+    }
+  }
+
+  document.getElementById('avm-save-btn').addEventListener('click', () => {
+    const spot = {
+      kat:    FLOORS[getIdx(pKat)]       || 'Z',
+      harf:   HARFLER[getIdx(pHarf)]     || 'A',
+      numara: NUMARALAR[getIdx(pNumara)] || '1',
+    };
+    localStorage.setItem('avmSpot', JSON.stringify(spot));
+    updateAvmDisplay();
+
+    const btn   = document.getElementById('avm-save-btn');
+    const flash = document.getElementById('avm-flash');
+    flash.style.opacity = '1';
+    btn.style.opacity   = '0';
+    setTimeout(() => { flash.style.opacity = '0'; btn.style.opacity = '1'; }, 1200);
+  });
+
+  updateAvmDisplay();
 </script>
 </body>
 </html>
